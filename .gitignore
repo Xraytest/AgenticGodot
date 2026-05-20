@@ -1,0 +1,5 @@
+
+# Godot source backup
+godot_source/.git_bak/
+# Build output
+build/
