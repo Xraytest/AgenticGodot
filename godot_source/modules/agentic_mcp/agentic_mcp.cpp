@@ -374,8 +374,8 @@ void AgenticMCP::_handle_client(Ref<MCPClientHandler> p_client) {
     Error err = p_client->connection->get_data(buf.ptrw(), avail);
     if (err != OK) { p_client->active = false; return; }
     buf.write[avail] = 0;
-    String data = String::utf8((const char *)buf.ptr(), avail);
-    Vector<String> lines = data.split("\n");
+    String str_data = String::utf8((const char *)buf.ptr(), avail);
+    Vector<String> lines = str_data.split("\n");
     for (int i = 0; i < lines.size(); i++) {
         String line = lines[i].strip_edges();
         if (line.is_empty()) continue;
@@ -460,7 +460,7 @@ Dictionary AgenticMCP::_handle_visual(const MCPTool &p_tool, const Dictionary &p
 
 Dictionary AgenticMCP::_get_viewport_preview() {
     Dictionary d; d["type"] = "viewport";
-    SceneTree *st = Object::cast_to<SceneTree>(Engine::get_singleton()->get_main_loop());
+    SceneTree *st = SceneTree::get_singleton();
     if (st && st->get_root()) {
         Size2i sz = st->get_root()->get_size();
         d["width"] = sz.width; d["height"] = sz.height; d["status"] = "active";
@@ -470,7 +470,7 @@ Dictionary AgenticMCP::_get_viewport_preview() {
 
 Dictionary AgenticMCP::_get_scene_tree_preview() {
     Dictionary d; d["type"] = "scene_tree";
-    SceneTree *st = Object::cast_to<SceneTree>(Engine::get_singleton()->get_main_loop());
+    SceneTree *st = SceneTree::get_singleton();
     if (st) {
         Node *root = st->get_edited_scene_root();
         if (root) { d["root_node"] = root->get_name(); d["children_count"] = root->get_child_count(); d["status"] = "active"; }
@@ -481,7 +481,7 @@ Dictionary AgenticMCP::_get_scene_tree_preview() {
 
 Dictionary AgenticMCP::_get_inspector_preview() {
     Dictionary d; d["type"] = "inspector";
-    SceneTree *st = Object::cast_to<SceneTree>(Engine::get_singleton()->get_main_loop());
+    SceneTree *st = SceneTree::get_singleton();
     if (st && st->get_edited_scene_root()) { d["selected_node"] = st->get_edited_scene_root()->get_name(); d["status"] = "active"; }
     else { d["status"] = "no_selection"; }
     return d;
@@ -540,7 +540,7 @@ Dictionary AgenticMCP::_handle_control(const MCPTool &p_tool, const Dictionary &
 }
 
 Node *AgenticMCP::_get_edited_root() {
-    SceneTree *st = Object::cast_to<SceneTree>(Engine::get_singleton()->get_main_loop());
+    SceneTree *st = SceneTree::get_singleton();
     if (st) return st->get_edited_scene_root();
     return nullptr;
 }
