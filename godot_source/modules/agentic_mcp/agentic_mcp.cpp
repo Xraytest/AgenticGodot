@@ -13,7 +13,7 @@
 #include "scene/gui/control.h"
 #include "scene/main/window.h"
 #include "scene/resources/world_2d.h"
-#include "scene/resources/world_3d.h"
+#include "scene/main/window.h"
 #include "servers/display_server.h"
 #include "servers/rendering_server.h"
 #include "servers/physics_server_2d.h"
@@ -21,13 +21,8 @@
 #include "servers/audio_server.h"
 #include "servers/text_server.h"
 #include "servers/navigation_server_2d.h"
-#include "servers/navigation_server_3d.h"
-#include "servers/xr_server.h"
 #include "scene/animation/animation_player.h"
 #include "scene/2d/sprite_2d.h"
-#include "scene/3d/sprite_3d.h"
-#include "scene/3d/mesh_instance_3d.h"
-#include "scene/3d/camera_3d.h"
 #include "scene/2d/camera_2d.h"
 
 AgenticMCP *AgenticMCP::singleton = nullptr;

@@ -13,7 +13,6 @@
 #include "scene/main/node.h"
 #include "scene/main/window.h"
 #include "scene/2d/node_2d.h"
-#include "scene/3d/node_3d.h"
 
 struct MCPTool {
     String id;
