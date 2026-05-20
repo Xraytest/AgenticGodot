@@ -1,0 +1,1270 @@
+[
+  {
+    "id": "vis_transform_position_x",
+    "name": "display_transform_position_x",
+    "desc": "Display node position.x",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_position_y",
+    "name": "display_transform_position_y",
+    "desc": "Display node position.y",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_position_z",
+    "name": "display_transform_position_z",
+    "desc": "Display node position.z",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_rotation_x",
+    "name": "display_transform_rotation_x",
+    "desc": "Display node rotation.x",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_rotation_y",
+    "name": "display_transform_rotation_y",
+    "desc": "Display node rotation.y",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_rotation_z",
+    "name": "display_transform_rotation_z",
+    "desc": "Display node rotation.z",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_scale_x",
+    "name": "display_transform_scale_x",
+    "desc": "Display node scale.x",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_scale_y",
+    "name": "display_transform_scale_y",
+    "desc": "Display node scale.y",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_scale_z",
+    "name": "display_transform_scale_z",
+    "desc": "Display node scale.z",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_velocity_x",
+    "name": "display_transform_velocity_x",
+    "desc": "Display node velocity.x",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_velocity_y",
+    "name": "display_transform_velocity_y",
+    "desc": "Display node velocity.y",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_velocity_z",
+    "name": "display_transform_velocity_z",
+    "desc": "Display node velocity.z",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_angular_velocity_x",
+    "name": "display_transform_angular_velocity_x",
+    "desc": "Display node angular_velocity.x",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_angular_velocity_y",
+    "name": "display_transform_angular_velocity_y",
+    "desc": "Display node angular_velocity.y",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_transform_angular_velocity_z",
+    "name": "display_transform_angular_velocity_z",
+    "desc": "Display node angular_velocity.z",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_color_modulate_r",
+    "name": "display_color_modulate_r",
+    "desc": "Display modulate.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_modulate_g",
+    "name": "display_color_modulate_g",
+    "desc": "Display modulate.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_modulate_b",
+    "name": "display_color_modulate_b",
+    "desc": "Display modulate.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_modulate_a",
+    "name": "display_color_modulate_a",
+    "desc": "Display modulate.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_self_modulate_r",
+    "name": "display_color_self_modulate_r",
+    "desc": "Display self_modulate.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_self_modulate_g",
+    "name": "display_color_self_modulate_g",
+    "desc": "Display self_modulate.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_self_modulate_b",
+    "name": "display_color_self_modulate_b",
+    "desc": "Display self_modulate.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_self_modulate_a",
+    "name": "display_color_self_modulate_a",
+    "desc": "Display self_modulate.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_emissive_r",
+    "name": "display_color_emissive_r",
+    "desc": "Display emissive.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_emissive_g",
+    "name": "display_color_emissive_g",
+    "desc": "Display emissive.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_emissive_b",
+    "name": "display_color_emissive_b",
+    "desc": "Display emissive.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_emissive_a",
+    "name": "display_color_emissive_a",
+    "desc": "Display emissive.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_ambient_light_color_r",
+    "name": "display_color_ambient_light_color_r",
+    "desc": "Display ambient_light_color.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_ambient_light_color_g",
+    "name": "display_color_ambient_light_color_g",
+    "desc": "Display ambient_light_color.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_ambient_light_color_b",
+    "name": "display_color_ambient_light_color_b",
+    "desc": "Display ambient_light_color.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_ambient_light_color_a",
+    "name": "display_color_ambient_light_color_a",
+    "desc": "Display ambient_light_color.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_background_color_r",
+    "name": "display_color_background_color_r",
+    "desc": "Display background_color.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_background_color_g",
+    "name": "display_color_background_color_g",
+    "desc": "Display background_color.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_background_color_b",
+    "name": "display_color_background_color_b",
+    "desc": "Display background_color.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_background_color_a",
+    "name": "display_color_background_color_a",
+    "desc": "Display background_color.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_fog_color_r",
+    "name": "display_color_fog_color_r",
+    "desc": "Display fog_color.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_fog_color_g",
+    "name": "display_color_fog_color_g",
+    "desc": "Display fog_color.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_fog_color_b",
+    "name": "display_color_fog_color_b",
+    "desc": "Display fog_color.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_fog_color_a",
+    "name": "display_color_fog_color_a",
+    "desc": "Display fog_color.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_outline_color_r",
+    "name": "display_color_outline_color_r",
+    "desc": "Display outline_color.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_outline_color_g",
+    "name": "display_color_outline_color_g",
+    "desc": "Display outline_color.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_outline_color_b",
+    "name": "display_color_outline_color_b",
+    "desc": "Display outline_color.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_outline_color_a",
+    "name": "display_color_outline_color_a",
+    "desc": "Display outline_color.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_shadow_color_r",
+    "name": "display_color_shadow_color_r",
+    "desc": "Display shadow_color.r",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_shadow_color_g",
+    "name": "display_color_shadow_color_g",
+    "desc": "Display shadow_color.g",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_shadow_color_b",
+    "name": "display_color_shadow_color_b",
+    "desc": "Display shadow_color.b",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_color_shadow_color_a",
+    "name": "display_color_shadow_color_a",
+    "desc": "Display shadow_color.a",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "vis_physics_mass",
+    "name": "display_physics_mass",
+    "desc": "Display physics mass",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_friction",
+    "name": "display_physics_friction",
+    "desc": "Display physics friction",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_bounce",
+    "name": "display_physics_bounce",
+    "desc": "Display physics bounce",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_gravity_scale",
+    "name": "display_physics_gravity_scale",
+    "desc": "Display physics gravity_scale",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_linear_damping",
+    "name": "display_physics_linear_damping",
+    "desc": "Display physics linear_damping",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_angular_damping",
+    "name": "display_physics_angular_damping",
+    "desc": "Display physics angular_damping",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_max_contacts_reported",
+    "name": "display_physics_max_contacts_reported",
+    "desc": "Display physics max_contacts_reported",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_physics_continuous_cd",
+    "name": "display_physics_continuous_cd",
+    "desc": "Display physics continuous_cd",
+    "type": "visual",
+    "input_schema": {},
+    "output_schema": {
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "vis_audio_volume_db",
+    "name": "display_audio_volume_db",
+    "desc": "Display audio volume_db",
+    "type": "visual"
+  },
+  {
+    "id": "vis_audio_pitch_scale",
+    "name": "display_audio_pitch_scale",
+    "desc": "Display audio pitch_scale",
+    "type": "visual"
+  },
+  {
+    "id": "vis_audio_panning",
+    "name": "display_audio_panning",
+    "desc": "Display audio panning",
+    "type": "visual"
+  },
+  {
+    "id": "vis_audio_bus",
+    "name": "display_audio_bus",
+    "desc": "Display audio bus",
+    "type": "visual"
+  },
+  {
+    "id": "vis_audio_mix_target",
+    "name": "display_audio_mix_target",
+    "desc": "Display audio mix_target",
+    "type": "visual"
+  },
+  {
+    "id": "vis_audio_max_polyphony",
+    "name": "display_audio_max_polyphony",
+    "desc": "Display audio max_polyphony",
+    "type": "visual"
+  },
+  {
+    "id": "vis_audio_stream_paused",
+    "name": "display_audio_stream_paused",
+    "desc": "Display audio stream_paused",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_ambient_light_energy",
+    "name": "display_render_ambient_light_energy",
+    "desc": "Display rendering ambient_light_energy",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_ambient_light_sky_contribution",
+    "name": "display_render_ambient_light_sky_contribution",
+    "desc": "Display rendering ambient_light_sky_contribution",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_reflected_light_source",
+    "name": "display_render_reflected_light_source",
+    "desc": "Display rendering reflected_light_source",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_adjustment_brightness",
+    "name": "display_render_adjustment_brightness",
+    "desc": "Display rendering adjustment_brightness",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_adjustment_contrast",
+    "name": "display_render_adjustment_contrast",
+    "desc": "Display rendering adjustment_contrast",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_adjustment_saturation",
+    "name": "display_render_adjustment_saturation",
+    "desc": "Display rendering adjustment_saturation",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_fog_aerial_perspective",
+    "name": "display_render_fog_aerial_perspective",
+    "desc": "Display rendering fog_aerial_perspective",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_fog_density",
+    "name": "display_render_fog_density",
+    "desc": "Display rendering fog_density",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_tonemap_exposure",
+    "name": "display_render_tonemap_exposure",
+    "desc": "Display rendering tonemap_exposure",
+    "type": "visual"
+  },
+  {
+    "id": "vis_render_tonemap_white_point",
+    "name": "display_render_tonemap_white_point",
+    "desc": "Display rendering tonemap_white_point",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_font",
+    "name": "display_ui_font",
+    "desc": "Display UI font",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_font_size",
+    "name": "display_ui_font_size",
+    "desc": "Display UI font_size",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_font_color",
+    "name": "display_ui_font_color",
+    "desc": "Display UI font_color",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_outline_size",
+    "name": "display_ui_outline_size",
+    "desc": "Display UI outline_size",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_custom_minimum_size_x",
+    "name": "display_ui_custom_minimum_size_x",
+    "desc": "Display UI custom_minimum_size_x",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_custom_minimum_size_y",
+    "name": "display_ui_custom_minimum_size_y",
+    "desc": "Display UI custom_minimum_size_y",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_text_alignment",
+    "name": "display_ui_text_alignment",
+    "desc": "Display UI text_alignment",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_text_overflow",
+    "name": "display_ui_text_overflow",
+    "desc": "Display UI text_overflow",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_clip_text",
+    "name": "display_ui_clip_text",
+    "desc": "Display UI clip_text",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_margin_left",
+    "name": "display_ui_margin_left",
+    "desc": "Display UI margin_left",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_margin_top",
+    "name": "display_ui_margin_top",
+    "desc": "Display UI margin_top",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_margin_right",
+    "name": "display_ui_margin_right",
+    "desc": "Display UI margin_right",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_margin_bottom",
+    "name": "display_ui_margin_bottom",
+    "desc": "Display UI margin_bottom",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_anchor_left",
+    "name": "display_ui_anchor_left",
+    "desc": "Display UI anchor_left",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_anchor_top",
+    "name": "display_ui_anchor_top",
+    "desc": "Display UI anchor_top",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_anchor_right",
+    "name": "display_ui_anchor_right",
+    "desc": "Display UI anchor_right",
+    "type": "visual"
+  },
+  {
+    "id": "vis_ui_anchor_bottom",
+    "name": "display_ui_anchor_bottom",
+    "desc": "Display UI anchor_bottom",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_new_scene",
+    "name": "display_scene_new_scene",
+    "desc": "Display scene new_scene",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_open_scene",
+    "name": "display_scene_open_scene",
+    "desc": "Display scene open_scene",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_save_scene",
+    "name": "display_scene_save_scene",
+    "desc": "Display scene save_scene",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_save_scene_as",
+    "name": "display_scene_save_scene_as",
+    "desc": "Display scene save_scene_as",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_close_scene",
+    "name": "display_scene_close_scene",
+    "desc": "Display scene close_scene",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_close_all_scenes",
+    "name": "display_scene_close_all_scenes",
+    "desc": "Display scene close_all_scenes",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_reload_scene",
+    "name": "display_scene_reload_scene",
+    "desc": "Display scene reload_scene",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_instantiate_scene",
+    "name": "display_scene_instantiate_scene",
+    "desc": "Display scene instantiate_scene",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_clear_dependencies",
+    "name": "display_scene_clear_dependencies",
+    "desc": "Display scene clear_dependencies",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_find_unique_node",
+    "name": "display_scene_find_unique_node",
+    "desc": "Display scene find_unique_node",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_get_node_count",
+    "name": "display_scene_get_node_count",
+    "desc": "Display scene get_node_count",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_get_node_list",
+    "name": "display_scene_get_node_list",
+    "desc": "Display scene get_node_list",
+    "type": "visual"
+  },
+  {
+    "id": "vis_scene_get_node_path",
+    "name": "display_scene_get_node_path",
+    "desc": "Display scene get_node_path",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_orbit_left",
+    "name": "display_camera_orbit_left",
+    "desc": "Display camera orbit_left",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_orbit_right",
+    "name": "display_camera_orbit_right",
+    "desc": "Display camera orbit_right",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_orbit_up",
+    "name": "display_camera_orbit_up",
+    "desc": "Display camera orbit_up",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_orbit_down",
+    "name": "display_camera_orbit_down",
+    "desc": "Display camera orbit_down",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_pan_left",
+    "name": "display_camera_pan_left",
+    "desc": "Display camera pan_left",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_pan_right",
+    "name": "display_camera_pan_right",
+    "desc": "Display camera pan_right",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_pan_up",
+    "name": "display_camera_pan_up",
+    "desc": "Display camera pan_up",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_pan_down",
+    "name": "display_camera_pan_down",
+    "desc": "Display camera pan_down",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_zoom_in",
+    "name": "display_camera_zoom_in",
+    "desc": "Display camera zoom_in",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_zoom_out",
+    "name": "display_camera_zoom_out",
+    "desc": "Display camera zoom_out",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_fit_selection",
+    "name": "display_camera_fit_selection",
+    "desc": "Display camera fit_selection",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_focus_point",
+    "name": "display_camera_focus_point",
+    "desc": "Display camera focus_point",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_toggle_orthogonal",
+    "name": "display_camera_toggle_orthogonal",
+    "desc": "Display camera toggle_orthogonal",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_toggle_perspective",
+    "name": "display_camera_toggle_perspective",
+    "desc": "Display camera toggle_perspective",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_reset_view",
+    "name": "display_camera_reset_view",
+    "desc": "Display camera reset_view",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_set_camera_position",
+    "name": "display_camera_set_camera_position",
+    "desc": "Display camera set_camera_position",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_set_camera_rotation",
+    "name": "display_camera_set_camera_rotation",
+    "desc": "Display camera set_camera_rotation",
+    "type": "visual"
+  },
+  {
+    "id": "vis_camera_set_camera_fov",
+    "name": "display_camera_set_camera_fov",
+    "desc": "Display camera set_camera_fov",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_performance_metrics",
+    "name": "display_monitor_performance_metrics",
+    "desc": "Display performance_metrics",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_memory_usage",
+    "name": "display_monitor_memory_usage",
+    "desc": "Display memory_usage",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_frame_time",
+    "name": "display_monitor_frame_time",
+    "desc": "Display frame_time",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_draw_calls",
+    "name": "display_monitor_draw_calls",
+    "desc": "Display draw_calls",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_vertex_count",
+    "name": "display_monitor_vertex_count",
+    "desc": "Display vertex_count",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_triangle_count",
+    "name": "display_monitor_triangle_count",
+    "desc": "Display triangle_count",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_node_count",
+    "name": "display_monitor_node_count",
+    "desc": "Display node_count",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_resource_count",
+    "name": "display_monitor_resource_count",
+    "desc": "Display resource_count",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_physics_bodies",
+    "name": "display_monitor_physics_bodies",
+    "desc": "Display physics_bodies",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_active_scripts",
+    "name": "display_monitor_active_scripts",
+    "desc": "Display active_scripts",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_texture_memory",
+    "name": "display_monitor_texture_memory",
+    "desc": "Display texture_memory",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_buffer_memory",
+    "name": "display_monitor_buffer_memory",
+    "desc": "Display buffer_memory",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_cpu_time",
+    "name": "display_monitor_cpu_time",
+    "desc": "Display cpu_time",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_gpu_time",
+    "name": "display_monitor_gpu_time",
+    "desc": "Display gpu_time",
+    "type": "visual"
+  },
+  {
+    "id": "vis_monitor_frame_rate",
+    "name": "display_monitor_frame_rate",
+    "desc": "Display frame_rate",
+    "type": "visual"
+  }
+]

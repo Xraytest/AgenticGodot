@@ -1,0 +1,39 @@
+{
+  "name": "agentic-godot",
+  "version": "1.0.0",
+  "description": "Godot Engine integrated with MCP servers for programmatic control",
+  "homepage": "https://github.com/agentic-ai/agentic-godot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentic-ai/agentic-godot.git"
+  },
+  "python_requires": ">=3.8",
+  "dependencies": {
+    "scons": ">=4.3.0",
+    "python": ">=3.8"
+  },
+  "dev_dependencies": {
+    "pytest": ">=7.0",
+    "pytest-cov": ">=3.0",
+    "black": ">=22.0",
+    "pylint": ">=2.0"
+  },
+  "scripts": {
+    "build:windows": "python scripts/build_godot.py --platform windows --target release",
+    "build:linux": "python scripts/build_godot.py --platform linux --target release --headless",
+    "build:linux:remote": "python scripts/remote_linux_build.py --host 192.168.1.3 --username xray4668 --arch arm64",
+    "build:all": "python scripts/build_godot.py --platform all --target release",
+    "test": "pytest tests/",
+    "validate:tools": "python scripts/validate_tools.py",
+    "benchmark": "python scripts/benchmark_tools.py",
+    "mcp:start": "python mcp_server/godot_mcp_server.py",
+    "launch": "python mcp_server/godot_mcp_launcher.py build/godot_windows.exe"
+  },
+  "mcp": {
+    "visual_tools": 175,
+    "control_tools": 171,
+    "extended_visual_tools": 135,
+    "extended_control_tools": 193,
+    "total_tools": 674
+  }
+}

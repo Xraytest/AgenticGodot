@@ -1,0 +1,59 @@
+{
+  "godot_version": "4.3.1",
+  "build_date": "2026-05-20",
+  "target_platforms": {
+    "windows": {
+      "enabled": true,
+      "architectures": ["x86_64"],
+      "target": "release",
+      "export_name": "godot_windows.exe"
+    },
+    "linux": {
+      "enabled": true,
+      "architectures": ["x86_64", "arm64"],
+      "target": "release",
+      "headless": true,
+      "remote_build": true,
+      "remote_host": "192.168.1.3",
+      "remote_port": 22,
+      "remote_username": "xray4668",
+      "export_names": {
+        "x86_64": "godot_linux_x86_64",
+        "arm64": "godot_linux_arm64"
+      }
+    },
+    "web": {
+      "enabled": false,
+      "target": "release"
+    },
+    "android": {
+      "enabled": false,
+      "target": "release"
+    }
+  },
+  "build_options": {
+    "threads": 4,
+    "verbose": true,
+    "strip_binaries": true,
+    "generate_symbols": false
+  },
+  "output": {
+    "directory": "build/",
+    "keep_intermediate": false,
+    "zip_artifacts": true
+  },
+  "mcp_server": {
+    "port": 6005,
+    "enable_on_startup": true,
+    "max_connections": 10,
+    "timeout_seconds": 30,
+    "log_level": "INFO"
+  },
+  "git": {
+    "enabled": true,
+    "auto_commit": true,
+    "push_on_success": true,
+    "remote_name": "origin",
+    "branch": "main"
+  }
+}

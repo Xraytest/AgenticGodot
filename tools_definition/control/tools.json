@@ -1,0 +1,1028 @@
+[
+  {
+    "id": "ui_control_menu_file_new",
+    "name": "menu_file_new",
+    "desc": "Create new project",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_menu_file_open",
+    "name": "menu_file_open",
+    "desc": "Open project",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_menu_file_save",
+    "name": "menu_file_save",
+    "desc": "Save project",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_menu_edit_undo",
+    "name": "menu_edit_undo",
+    "desc": "Undo action",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_menu_edit_redo",
+    "name": "menu_edit_redo",
+    "desc": "Redo action",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_menu_scene_save",
+    "name": "menu_scene_save",
+    "desc": "Save scene",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_toolbar_play_scene",
+    "name": "toolbar_play_scene",
+    "desc": "Play scene button",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_toolbar_play_project",
+    "name": "toolbar_play_project",
+    "desc": "Play project button",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_toolbar_stop",
+    "name": "toolbar_stop",
+    "desc": "Stop execution button",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_toolbar_pause",
+    "name": "toolbar_pause",
+    "desc": "Pause execution button",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_toolbar_step",
+    "name": "toolbar_step",
+    "desc": "Step execution button",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_button_new_node",
+    "name": "button_new_node",
+    "desc": "Create new node",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_button_delete_node",
+    "name": "button_delete_node",
+    "desc": "Delete selected node",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_button_duplicate_node",
+    "name": "button_duplicate_node",
+    "desc": "Duplicate node",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_dock_switch_scene",
+    "name": "dock_switch_scene",
+    "desc": "Switch to scene dock",
+    "type": "control"
+  },
+  {
+    "id": "ui_control_dock_switch_import",
+    "name": "dock_switch_import",
+    "desc": "Switch to import dock",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_node",
+    "name": "node_create_Node",
+    "desc": "Create Node instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_node2d",
+    "name": "node_create_Node2D",
+    "desc": "Create Node2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_node3d",
+    "name": "node_create_Node3D",
+    "desc": "Create Node3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_control",
+    "name": "node_create_Control",
+    "desc": "Create Control instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_canvasitem",
+    "name": "node_create_CanvasItem",
+    "desc": "Create CanvasItem instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_physicsbody2d",
+    "name": "node_create_PhysicsBody2D",
+    "desc": "Create PhysicsBody2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_physicsbody3d",
+    "name": "node_create_PhysicsBody3D",
+    "desc": "Create PhysicsBody3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_characterbody2d",
+    "name": "node_create_CharacterBody2D",
+    "desc": "Create CharacterBody2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_characterbody3d",
+    "name": "node_create_CharacterBody3D",
+    "desc": "Create CharacterBody3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_rigidbody2d",
+    "name": "node_create_RigidBody2D",
+    "desc": "Create RigidBody2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_rigidbody3d",
+    "name": "node_create_RigidBody3D",
+    "desc": "Create RigidBody3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_staticbody2d",
+    "name": "node_create_StaticBody2D",
+    "desc": "Create StaticBody2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_staticbody3d",
+    "name": "node_create_StaticBody3D",
+    "desc": "Create StaticBody3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_sprite2d",
+    "name": "node_create_Sprite2D",
+    "desc": "Create Sprite2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_sprite3d",
+    "name": "node_create_Sprite3D",
+    "desc": "Create Sprite3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_meshinstance3d",
+    "name": "node_create_MeshInstance3D",
+    "desc": "Create MeshInstance3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_skeletonik3d",
+    "name": "node_create_SkeletonIK3D",
+    "desc": "Create SkeletonIK3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_camera2d",
+    "name": "node_create_Camera2D",
+    "desc": "Create Camera2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_camera3d",
+    "name": "node_create_Camera3D",
+    "desc": "Create Camera3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_light2d",
+    "name": "node_create_Light2D",
+    "desc": "Create Light2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_light3d",
+    "name": "node_create_Light3D",
+    "desc": "Create Light3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_omnilight3d",
+    "name": "node_create_OmniLight3D",
+    "desc": "Create OmniLight3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_spotlight3d",
+    "name": "node_create_SpotLight3D",
+    "desc": "Create SpotLight3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_directionallight3d",
+    "name": "node_create_DirectionalLight3D",
+    "desc": "Create DirectionalLight3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_audiostreamplayer",
+    "name": "node_create_AudioStreamPlayer",
+    "desc": "Create AudioStreamPlayer instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_audiostreamplayer2d",
+    "name": "node_create_AudioStreamPlayer2D",
+    "desc": "Create AudioStreamPlayer2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_audiostreamplayer3d",
+    "name": "node_create_AudioStreamPlayer3D",
+    "desc": "Create AudioStreamPlayer3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_animationplayer",
+    "name": "node_create_AnimationPlayer",
+    "desc": "Create AnimationPlayer instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_animatedsprite2d",
+    "name": "node_create_AnimatedSprite2D",
+    "desc": "Create AnimatedSprite2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_animatedsprite3d",
+    "name": "node_create_AnimatedSprite3D",
+    "desc": "Create AnimatedSprite3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_visibleonscreennotifier2d",
+    "name": "node_create_VisibleOnScreenNotifier2D",
+    "desc": "Create VisibleOnScreenNotifier2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_visibleonscreennotifier3d",
+    "name": "node_create_VisibleOnScreenNotifier3D",
+    "desc": "Create VisibleOnScreenNotifier3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_marker2d",
+    "name": "node_create_Marker2D",
+    "desc": "Create Marker2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_marker3d",
+    "name": "node_create_Marker3D",
+    "desc": "Create Marker3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_path2d",
+    "name": "node_create_Path2D",
+    "desc": "Create Path2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_path3d",
+    "name": "node_create_Path3D",
+    "desc": "Create Path3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_area2d",
+    "name": "node_create_Area2D",
+    "desc": "Create Area2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_area3d",
+    "name": "node_create_Area3D",
+    "desc": "Create Area3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_collisionshape2d",
+    "name": "node_create_CollisionShape2D",
+    "desc": "Create CollisionShape2D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_collisionshape3d",
+    "name": "node_create_CollisionShape3D",
+    "desc": "Create CollisionShape3D instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_control",
+    "name": "node_create_UI/Control",
+    "desc": "Create UI/Control instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_button",
+    "name": "node_create_UI/Button",
+    "desc": "Create UI/Button instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_label",
+    "name": "node_create_UI/Label",
+    "desc": "Create UI/Label instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_textedit",
+    "name": "node_create_UI/TextEdit",
+    "desc": "Create UI/TextEdit instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_lineedit",
+    "name": "node_create_UI/LineEdit",
+    "desc": "Create UI/LineEdit instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_panel",
+    "name": "node_create_UI/Panel",
+    "desc": "Create UI/Panel instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_panelcontainer",
+    "name": "node_create_UI/PanelContainer",
+    "desc": "Create UI/PanelContainer instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_vboxcontainer",
+    "name": "node_create_UI/VBoxContainer",
+    "desc": "Create UI/VBoxContainer instance",
+    "type": "control"
+  },
+  {
+    "id": "node_control_create_ui_hboxcontainer",
+    "name": "node_create_UI/HBoxContainer",
+    "desc": "Create UI/HBoxContainer instance",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_position",
+    "name": "property_set_position",
+    "desc": "Set node Node position (Vector2/Vector3)",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_rotation",
+    "name": "property_set_rotation",
+    "desc": "Set node Node rotation",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_scale",
+    "name": "property_set_scale",
+    "desc": "Set node Node scale",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_transform",
+    "name": "property_set_transform",
+    "desc": "Set node Node transform matrix",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_visible",
+    "name": "property_set_visible",
+    "desc": "Set node Node visibility",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_modulate",
+    "name": "property_set_modulate",
+    "desc": "Set node Node modulation (color/alpha)",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_self_modulate",
+    "name": "property_set_self_modulate",
+    "desc": "Set node Self modulation",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_name",
+    "name": "property_set_name",
+    "desc": "Set node Node name",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_owner",
+    "name": "property_set_owner",
+    "desc": "Set node Node owner",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_unique_name_in_owner",
+    "name": "property_set_unique_name_in_owner",
+    "desc": "Set node Unique name flag",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_process_mode",
+    "name": "property_set_process_mode",
+    "desc": "Set node Process mode (inherit/pausable/when_paused/always/disabled)",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_custom_multiplayer",
+    "name": "property_set_custom_multiplayer",
+    "desc": "Set node Custom multiplayer setting",
+    "type": "control"
+  },
+  {
+    "id": "prop_control_physics_interpolation_mode",
+    "name": "property_set_physics_interpolation_mode",
+    "desc": "Set node Physics interpolation",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_application",
+    "name": "settings_modify_application",
+    "desc": "Modify Application settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_rendering",
+    "name": "settings_modify_rendering",
+    "desc": "Modify Rendering settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_physics",
+    "name": "settings_modify_physics",
+    "desc": "Modify Physics settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_input",
+    "name": "settings_modify_input",
+    "desc": "Modify Input mapping",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_display",
+    "name": "settings_modify_display",
+    "desc": "Modify Display settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_audio",
+    "name": "settings_modify_audio",
+    "desc": "Modify Audio settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_debug",
+    "name": "settings_modify_debug",
+    "desc": "Modify Debug settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_network",
+    "name": "settings_modify_network",
+    "desc": "Modify Network settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_localization",
+    "name": "settings_modify_localization",
+    "desc": "Modify Localization settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_gui",
+    "name": "settings_modify_gui",
+    "desc": "Modify GUI theme settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_importer",
+    "name": "settings_modify_importer",
+    "desc": "Modify Importer settings",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_layer_names_2d",
+    "name": "settings_modify_layer_names_2d",
+    "desc": "Modify 2D layer names",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_layer_names_3d",
+    "name": "settings_modify_layer_names_3d",
+    "desc": "Modify 3D layer names",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_physics_layers",
+    "name": "settings_modify_physics_layers",
+    "desc": "Modify Physics layers",
+    "type": "control"
+  },
+  {
+    "id": "settings_control_shader_globals",
+    "name": "settings_modify_shader_globals",
+    "desc": "Modify Shader global variables",
+    "type": "control"
+  },
+  {
+    "id": "render_control_viewport_camera",
+    "name": "render_modify_viewport_camera",
+    "desc": "Modify Viewport camera position/rotation",
+    "type": "control"
+  },
+  {
+    "id": "render_control_viewport_zoom",
+    "name": "render_modify_viewport_zoom",
+    "desc": "Modify Viewport zoom level",
+    "type": "control"
+  },
+  {
+    "id": "render_control_viewport_grid",
+    "name": "render_modify_viewport_grid",
+    "desc": "Modify Grid display settings",
+    "type": "control"
+  },
+  {
+    "id": "render_control_viewport_gizmo",
+    "name": "render_modify_viewport_gizmo",
+    "desc": "Modify Gizmo display",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_environment",
+    "name": "render_modify_render_environment",
+    "desc": "Modify Environment (lighting, fog, sky)",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_world_env",
+    "name": "render_modify_render_world_env",
+    "desc": "Modify World environment",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_lights",
+    "name": "render_modify_render_lights",
+    "desc": "Modify Light properties",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_shadows",
+    "name": "render_modify_render_shadows",
+    "desc": "Modify Shadow settings",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_materials",
+    "name": "render_modify_render_materials",
+    "desc": "Modify Material properties",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_textures",
+    "name": "render_modify_render_textures",
+    "desc": "Modify Texture properties",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_shaders",
+    "name": "render_modify_render_shaders",
+    "desc": "Modify Shader properties",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_canvas",
+    "name": "render_modify_render_canvas",
+    "desc": "Modify Canvas layer rendering",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_post_process",
+    "name": "render_modify_render_post_process",
+    "desc": "Modify Post-processing effects",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_lod",
+    "name": "render_modify_render_lod",
+    "desc": "Modify LOD settings",
+    "type": "control"
+  },
+  {
+    "id": "render_control_render_occlusion",
+    "name": "render_modify_render_occlusion",
+    "desc": "Modify Occlusion culling",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_timeline",
+    "name": "anim_modify_timeline",
+    "desc": "Modify Animation timeline",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_keyframes",
+    "name": "anim_modify_keyframes",
+    "desc": "Modify Keyframe display",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_playback_position",
+    "name": "anim_modify_playback_position",
+    "desc": "Modify Playback position",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_playback_speed",
+    "name": "anim_modify_playback_speed",
+    "desc": "Modify Playback speed",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_animation_list",
+    "name": "anim_modify_animation_list",
+    "desc": "Modify Animation list",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_track_list",
+    "name": "anim_modify_track_list",
+    "desc": "Modify Animation tracks",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_bezier_editor",
+    "name": "anim_modify_bezier_editor",
+    "desc": "Modify Bezier curve editor",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_animation_blend",
+    "name": "anim_modify_animation_blend",
+    "desc": "Modify Animation blending",
+    "type": "control"
+  },
+  {
+    "id": "anim_control_animation_state_machine",
+    "name": "anim_modify_animation_state_machine",
+    "desc": "Modify State machine transitions",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_2d_gravity",
+    "name": "physics_modify_2d_gravity",
+    "desc": "Modify 2D world gravity",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_2d_damping",
+    "name": "physics_modify_2d_damping",
+    "desc": "Modify 2D damping settings",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_3d_gravity",
+    "name": "physics_modify_3d_gravity",
+    "desc": "Modify 3D world gravity",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_3d_damping",
+    "name": "physics_modify_3d_damping",
+    "desc": "Modify 3D damping settings",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_collision_layers",
+    "name": "physics_modify_collision_layers",
+    "desc": "Modify Collision layers",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_collision_masks",
+    "name": "physics_modify_collision_masks",
+    "desc": "Modify Collision masks",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_rigid_body_params",
+    "name": "physics_modify_rigid_body_params",
+    "desc": "Modify RigidBody parameters",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_physics_material",
+    "name": "physics_modify_physics_material",
+    "desc": "Modify Physics material properties",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_joint_params",
+    "name": "physics_modify_joint_params",
+    "desc": "Modify Joint parameters",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_vehicle_params",
+    "name": "physics_modify_vehicle_params",
+    "desc": "Modify Vehicle parameters",
+    "type": "control"
+  },
+  {
+    "id": "physics_control_character_params",
+    "name": "physics_modify_character_params",
+    "desc": "Modify Character parameters",
+    "type": "control"
+  },
+  {
+    "id": "io_control_input_map",
+    "name": "io_command_input_map",
+    "desc": "Control Input action mapping",
+    "type": "control"
+  },
+  {
+    "id": "io_control_keyboard_input",
+    "name": "io_command_keyboard_input",
+    "desc": "Control Keyboard input simulation",
+    "type": "control"
+  },
+  {
+    "id": "io_control_mouse_input",
+    "name": "io_command_mouse_input",
+    "desc": "Control Mouse input simulation",
+    "type": "control"
+  },
+  {
+    "id": "io_control_gamepad_input",
+    "name": "io_command_gamepad_input",
+    "desc": "Control Gamepad input simulation",
+    "type": "control"
+  },
+  {
+    "id": "io_control_touch_input",
+    "name": "io_command_touch_input",
+    "desc": "Control Touch input simulation",
+    "type": "control"
+  },
+  {
+    "id": "io_control_midi_input",
+    "name": "io_command_midi_input",
+    "desc": "Control MIDI input handling",
+    "type": "control"
+  },
+  {
+    "id": "io_control_joy_input",
+    "name": "io_command_joy_input",
+    "desc": "Control Joystick input handling",
+    "type": "control"
+  },
+  {
+    "id": "io_control_output_console",
+    "name": "io_command_output_console",
+    "desc": "Control Output console",
+    "type": "control"
+  },
+  {
+    "id": "io_control_debug_print",
+    "name": "io_command_debug_print",
+    "desc": "Control Debug output",
+    "type": "control"
+  },
+  {
+    "id": "io_control_profiler",
+    "name": "io_command_profiler",
+    "desc": "Control Profiler data",
+    "type": "control"
+  },
+  {
+    "id": "io_control_network_socket",
+    "name": "io_command_network_socket",
+    "desc": "Control Network socket control",
+    "type": "control"
+  },
+  {
+    "id": "script_control_script_edit",
+    "name": "script_manage_script_edit",
+    "desc": "Manage Script editor content",
+    "type": "control"
+  },
+  {
+    "id": "script_control_script_output",
+    "name": "script_manage_script_output",
+    "desc": "Manage Script output/console",
+    "type": "control"
+  },
+  {
+    "id": "script_control_breakpoints",
+    "name": "script_manage_breakpoints",
+    "desc": "Manage Debugger breakpoints",
+    "type": "control"
+  },
+  {
+    "id": "script_control_watch_variables",
+    "name": "script_manage_watch_variables",
+    "desc": "Manage Variable watch display",
+    "type": "control"
+  },
+  {
+    "id": "script_control_call_stack",
+    "name": "script_manage_call_stack",
+    "desc": "Manage Call stack display",
+    "type": "control"
+  },
+  {
+    "id": "script_control_memory_profiler",
+    "name": "script_manage_memory_profiler",
+    "desc": "Manage Memory profiling",
+    "type": "control"
+  },
+  {
+    "id": "script_control_performance_monitor",
+    "name": "script_manage_performance_monitor",
+    "desc": "Manage Performance monitoring",
+    "type": "control"
+  },
+  {
+    "id": "script_control_gdscript_highlighter",
+    "name": "script_manage_gdscript_highlighter",
+    "desc": "Manage GDScript syntax highlighting",
+    "type": "control"
+  },
+  {
+    "id": "script_control_csharp_highlighter",
+    "name": "script_manage_csharp_highlighter",
+    "desc": "Manage C# syntax highlighting",
+    "type": "control"
+  },
+  {
+    "id": "script_control_autocomplete",
+    "name": "script_manage_autocomplete",
+    "desc": "Manage Autocomplete suggestions",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_texture_import",
+    "name": "resource_manage_texture_import",
+    "desc": "Manage Texture import settings",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_mesh_import",
+    "name": "resource_manage_mesh_import",
+    "desc": "Manage Mesh import settings",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_audio_import",
+    "name": "resource_manage_audio_import",
+    "desc": "Manage Audio import settings",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_scene_import",
+    "name": "resource_manage_scene_import",
+    "desc": "Manage Scene import settings",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_font_import",
+    "name": "resource_manage_font_import",
+    "desc": "Manage Font import settings",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_script_import",
+    "name": "resource_manage_script_import",
+    "desc": "Manage Script import settings",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_material_editor",
+    "name": "resource_manage_material_editor",
+    "desc": "Manage Material editor",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_shader_editor",
+    "name": "resource_manage_shader_editor",
+    "desc": "Manage Shader editor",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_tilemap_editor",
+    "name": "resource_manage_tilemap_editor",
+    "desc": "Manage Tilemap editor",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_polygon_editor",
+    "name": "resource_manage_polygon_editor",
+    "desc": "Manage Polygon editor",
+    "type": "control"
+  },
+  {
+    "id": "resource_control_resource_list",
+    "name": "resource_manage_resource_list",
+    "desc": "Manage Resource list display",
+    "type": "control"
+  },
+  {
+    "id": "project_control_project_version",
+    "name": "project_manage_project_version",
+    "desc": "Manage Project version info",
+    "type": "control"
+  },
+  {
+    "id": "project_control_project_name",
+    "name": "project_manage_project_name",
+    "desc": "Manage Project name",
+    "type": "control"
+  },
+  {
+    "id": "project_control_project_icon",
+    "name": "project_manage_project_icon",
+    "desc": "Manage Project icon",
+    "type": "control"
+  },
+  {
+    "id": "project_control_project_author",
+    "name": "project_manage_project_author",
+    "desc": "Manage Project author info",
+    "type": "control"
+  },
+  {
+    "id": "project_control_build_profile",
+    "name": "project_manage_build_profile",
+    "desc": "Manage Build profile",
+    "type": "control"
+  },
+  {
+    "id": "project_control_export_preset",
+    "name": "project_manage_export_preset",
+    "desc": "Manage Export presets",
+    "type": "control"
+  },
+  {
+    "id": "project_control_addon_list",
+    "name": "project_manage_addon_list",
+    "desc": "Manage Addon list and settings",
+    "type": "control"
+  },
+  {
+    "id": "project_control_autoload",
+    "name": "project_manage_autoload",
+    "desc": "Manage Autoload list",
+    "type": "control"
+  },
+  {
+    "id": "project_control_scene_tabs",
+    "name": "project_manage_scene_tabs",
+    "desc": "Manage Open scene tabs",
+    "type": "control"
+  },
+  {
+    "id": "project_control_undo_redo_history",
+    "name": "project_manage_undo_redo_history",
+    "desc": "Manage Undo/redo history",
+    "type": "control"
+  },
+  {
+    "id": "project_control_version_control",
+    "name": "project_manage_version_control",
+    "desc": "Manage Version control integration",
+    "type": "control"
+  }
+]

@@ -1,0 +1,1854 @@
+[
+  {
+    "id": "ctrl_transform_position_x",
+    "name": "set_transform_position_x",
+    "desc": "Set node position.x",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_position_y",
+    "name": "set_transform_position_y",
+    "desc": "Set node position.y",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_position_z",
+    "name": "set_transform_position_z",
+    "desc": "Set node position.z",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_rotation_x",
+    "name": "set_transform_rotation_x",
+    "desc": "Set node rotation.x",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_rotation_y",
+    "name": "set_transform_rotation_y",
+    "desc": "Set node rotation.y",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_rotation_z",
+    "name": "set_transform_rotation_z",
+    "desc": "Set node rotation.z",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_scale_x",
+    "name": "set_transform_scale_x",
+    "desc": "Set node scale.x",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_scale_y",
+    "name": "set_transform_scale_y",
+    "desc": "Set node scale.y",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_scale_z",
+    "name": "set_transform_scale_z",
+    "desc": "Set node scale.z",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_velocity_x",
+    "name": "set_transform_velocity_x",
+    "desc": "Set node velocity.x",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_velocity_y",
+    "name": "set_transform_velocity_y",
+    "desc": "Set node velocity.y",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_velocity_z",
+    "name": "set_transform_velocity_z",
+    "desc": "Set node velocity.z",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_angular_velocity_x",
+    "name": "set_transform_angular_velocity_x",
+    "desc": "Set node angular_velocity.x",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_angular_velocity_y",
+    "name": "set_transform_angular_velocity_y",
+    "desc": "Set node angular_velocity.y",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_transform_angular_velocity_z",
+    "name": "set_transform_angular_velocity_z",
+    "desc": "Set node angular_velocity.z",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number"
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_modulate_r",
+    "name": "set_color_modulate_r",
+    "desc": "Set modulate.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_modulate_g",
+    "name": "set_color_modulate_g",
+    "desc": "Set modulate.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_modulate_b",
+    "name": "set_color_modulate_b",
+    "desc": "Set modulate.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_modulate_a",
+    "name": "set_color_modulate_a",
+    "desc": "Set modulate.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_self_modulate_r",
+    "name": "set_color_self_modulate_r",
+    "desc": "Set self_modulate.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_self_modulate_g",
+    "name": "set_color_self_modulate_g",
+    "desc": "Set self_modulate.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_self_modulate_b",
+    "name": "set_color_self_modulate_b",
+    "desc": "Set self_modulate.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_self_modulate_a",
+    "name": "set_color_self_modulate_a",
+    "desc": "Set self_modulate.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_emissive_r",
+    "name": "set_color_emissive_r",
+    "desc": "Set emissive.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_emissive_g",
+    "name": "set_color_emissive_g",
+    "desc": "Set emissive.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_emissive_b",
+    "name": "set_color_emissive_b",
+    "desc": "Set emissive.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_emissive_a",
+    "name": "set_color_emissive_a",
+    "desc": "Set emissive.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_ambient_light_color_r",
+    "name": "set_color_ambient_light_color_r",
+    "desc": "Set ambient_light_color.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_ambient_light_color_g",
+    "name": "set_color_ambient_light_color_g",
+    "desc": "Set ambient_light_color.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_ambient_light_color_b",
+    "name": "set_color_ambient_light_color_b",
+    "desc": "Set ambient_light_color.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_ambient_light_color_a",
+    "name": "set_color_ambient_light_color_a",
+    "desc": "Set ambient_light_color.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_background_color_r",
+    "name": "set_color_background_color_r",
+    "desc": "Set background_color.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_background_color_g",
+    "name": "set_color_background_color_g",
+    "desc": "Set background_color.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_background_color_b",
+    "name": "set_color_background_color_b",
+    "desc": "Set background_color.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_background_color_a",
+    "name": "set_color_background_color_a",
+    "desc": "Set background_color.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_fog_color_r",
+    "name": "set_color_fog_color_r",
+    "desc": "Set fog_color.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_fog_color_g",
+    "name": "set_color_fog_color_g",
+    "desc": "Set fog_color.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_fog_color_b",
+    "name": "set_color_fog_color_b",
+    "desc": "Set fog_color.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_fog_color_a",
+    "name": "set_color_fog_color_a",
+    "desc": "Set fog_color.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_outline_color_r",
+    "name": "set_color_outline_color_r",
+    "desc": "Set outline_color.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_outline_color_g",
+    "name": "set_color_outline_color_g",
+    "desc": "Set outline_color.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_outline_color_b",
+    "name": "set_color_outline_color_b",
+    "desc": "Set outline_color.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_outline_color_a",
+    "name": "set_color_outline_color_a",
+    "desc": "Set outline_color.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_shadow_color_r",
+    "name": "set_color_shadow_color_r",
+    "desc": "Set shadow_color.r",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_shadow_color_g",
+    "name": "set_color_shadow_color_g",
+    "desc": "Set shadow_color.g",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_shadow_color_b",
+    "name": "set_color_shadow_color_b",
+    "desc": "Set shadow_color.b",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_color_shadow_color_a",
+    "name": "set_color_shadow_color_a",
+    "desc": "Set shadow_color.a",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "range": [
+          0,
+          1
+        ]
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_mass",
+    "name": "set_physics_mass",
+    "desc": "Set physics mass",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 1000
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_friction",
+    "name": "set_physics_friction",
+    "desc": "Set physics friction",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 1
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_bounce",
+    "name": "set_physics_bounce",
+    "desc": "Set physics bounce",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 1
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_gravity_scale",
+    "name": "set_physics_gravity_scale",
+    "desc": "Set physics gravity_scale",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": -10,
+        "max": 10
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_linear_damping",
+    "name": "set_physics_linear_damping",
+    "desc": "Set physics linear_damping",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 1
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_angular_damping",
+    "name": "set_physics_angular_damping",
+    "desc": "Set physics angular_damping",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 1
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_max_contacts_reported",
+    "name": "set_physics_max_contacts_reported",
+    "desc": "Set physics max_contacts_reported",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 64
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_physics_continuous_cd",
+    "name": "set_physics_continuous_cd",
+    "desc": "Set physics continuous_cd",
+    "type": "control",
+    "input_schema": {
+      "value": {
+        "type": "number",
+        "min": 0,
+        "max": 1
+      }
+    },
+    "output_schema": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  {
+    "id": "ctrl_audio_volume_db",
+    "name": "control_audio_volume_db",
+    "desc": "Control audio volume_db",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_audio_pitch_scale",
+    "name": "control_audio_pitch_scale",
+    "desc": "Control audio pitch_scale",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_audio_panning",
+    "name": "control_audio_panning",
+    "desc": "Control audio panning",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_audio_bus",
+    "name": "control_audio_bus",
+    "desc": "Control audio bus",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_audio_mix_target",
+    "name": "control_audio_mix_target",
+    "desc": "Control audio mix_target",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_audio_max_polyphony",
+    "name": "control_audio_max_polyphony",
+    "desc": "Control audio max_polyphony",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_audio_stream_paused",
+    "name": "control_audio_stream_paused",
+    "desc": "Control audio stream_paused",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_ambient_light_energy",
+    "name": "adjust_render_ambient_light_energy",
+    "desc": "Adjust ambient_light_energy",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_ambient_light_sky_contribution",
+    "name": "adjust_render_ambient_light_sky_contribution",
+    "desc": "Adjust ambient_light_sky_contribution",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_reflected_light_source",
+    "name": "adjust_render_reflected_light_source",
+    "desc": "Adjust reflected_light_source",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_adjustment_brightness",
+    "name": "adjust_render_adjustment_brightness",
+    "desc": "Adjust adjustment_brightness",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_adjustment_contrast",
+    "name": "adjust_render_adjustment_contrast",
+    "desc": "Adjust adjustment_contrast",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_adjustment_saturation",
+    "name": "adjust_render_adjustment_saturation",
+    "desc": "Adjust adjustment_saturation",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_fog_aerial_perspective",
+    "name": "adjust_render_fog_aerial_perspective",
+    "desc": "Adjust fog_aerial_perspective",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_fog_density",
+    "name": "adjust_render_fog_density",
+    "desc": "Adjust fog_density",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_tonemap_exposure",
+    "name": "adjust_render_tonemap_exposure",
+    "desc": "Adjust tonemap_exposure",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_render_tonemap_white_point",
+    "name": "adjust_render_tonemap_white_point",
+    "desc": "Adjust tonemap_white_point",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_font",
+    "name": "set_ui_font",
+    "desc": "Set UI font",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_font_size",
+    "name": "set_ui_font_size",
+    "desc": "Set UI font_size",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_font_color",
+    "name": "set_ui_font_color",
+    "desc": "Set UI font_color",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_outline_size",
+    "name": "set_ui_outline_size",
+    "desc": "Set UI outline_size",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_custom_minimum_size_x",
+    "name": "set_ui_custom_minimum_size_x",
+    "desc": "Set UI custom_minimum_size_x",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_custom_minimum_size_y",
+    "name": "set_ui_custom_minimum_size_y",
+    "desc": "Set UI custom_minimum_size_y",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_text_alignment",
+    "name": "set_ui_text_alignment",
+    "desc": "Set UI text_alignment",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_text_overflow",
+    "name": "set_ui_text_overflow",
+    "desc": "Set UI text_overflow",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_clip_text",
+    "name": "set_ui_clip_text",
+    "desc": "Set UI clip_text",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_margin_left",
+    "name": "set_ui_margin_left",
+    "desc": "Set UI margin_left",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_margin_top",
+    "name": "set_ui_margin_top",
+    "desc": "Set UI margin_top",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_margin_right",
+    "name": "set_ui_margin_right",
+    "desc": "Set UI margin_right",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_margin_bottom",
+    "name": "set_ui_margin_bottom",
+    "desc": "Set UI margin_bottom",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_anchor_left",
+    "name": "set_ui_anchor_left",
+    "desc": "Set UI anchor_left",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_anchor_top",
+    "name": "set_ui_anchor_top",
+    "desc": "Set UI anchor_top",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_anchor_right",
+    "name": "set_ui_anchor_right",
+    "desc": "Set UI anchor_right",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_ui_anchor_bottom",
+    "name": "set_ui_anchor_bottom",
+    "desc": "Set UI anchor_bottom",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_add_keyframe",
+    "name": "add_keyframe",
+    "desc": "Animation operation: add_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_remove_keyframe",
+    "name": "remove_keyframe",
+    "desc": "Animation operation: remove_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_modify_keyframe_time",
+    "name": "modify_keyframe_time",
+    "desc": "Animation operation: modify_keyframe_time",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_modify_keyframe_value",
+    "name": "modify_keyframe_value",
+    "desc": "Animation operation: modify_keyframe_value",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_ease_keyframe",
+    "name": "ease_keyframe",
+    "desc": "Animation operation: ease_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_copy_keyframe",
+    "name": "copy_keyframe",
+    "desc": "Animation operation: copy_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_paste_keyframe",
+    "name": "paste_keyframe",
+    "desc": "Animation operation: paste_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_select_keyframe",
+    "name": "select_keyframe",
+    "desc": "Animation operation: select_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_deselect_keyframe",
+    "name": "deselect_keyframe",
+    "desc": "Animation operation: deselect_keyframe",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_shift_keyframes",
+    "name": "shift_keyframes",
+    "desc": "Animation operation: shift_keyframes",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_scale_keyframes",
+    "name": "scale_keyframes",
+    "desc": "Animation operation: scale_keyframes",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_anim_insert_key_at_time",
+    "name": "insert_key_at_time",
+    "desc": "Animation operation: insert_key_at_time",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_new_scene",
+    "name": "new_scene",
+    "desc": "Scene operation: new_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_open_scene",
+    "name": "open_scene",
+    "desc": "Scene operation: open_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_save_scene",
+    "name": "save_scene",
+    "desc": "Scene operation: save_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_save_scene_as",
+    "name": "save_scene_as",
+    "desc": "Scene operation: save_scene_as",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_close_scene",
+    "name": "close_scene",
+    "desc": "Scene operation: close_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_close_all_scenes",
+    "name": "close_all_scenes",
+    "desc": "Scene operation: close_all_scenes",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_reload_scene",
+    "name": "reload_scene",
+    "desc": "Scene operation: reload_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_instantiate_scene",
+    "name": "instantiate_scene",
+    "desc": "Scene operation: instantiate_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_clear_dependencies",
+    "name": "clear_dependencies",
+    "desc": "Scene operation: clear_dependencies",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_find_unique_node",
+    "name": "find_unique_node",
+    "desc": "Scene operation: find_unique_node",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_get_node_count",
+    "name": "get_node_count",
+    "desc": "Scene operation: get_node_count",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_get_node_list",
+    "name": "get_node_list",
+    "desc": "Scene operation: get_node_list",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_scene_get_node_path",
+    "name": "get_node_path",
+    "desc": "Scene operation: get_node_path",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_orbit_left",
+    "name": "orbit_left",
+    "desc": "Camera operation: orbit_left",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_orbit_right",
+    "name": "orbit_right",
+    "desc": "Camera operation: orbit_right",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_orbit_up",
+    "name": "orbit_up",
+    "desc": "Camera operation: orbit_up",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_orbit_down",
+    "name": "orbit_down",
+    "desc": "Camera operation: orbit_down",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_pan_left",
+    "name": "pan_left",
+    "desc": "Camera operation: pan_left",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_pan_right",
+    "name": "pan_right",
+    "desc": "Camera operation: pan_right",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_pan_up",
+    "name": "pan_up",
+    "desc": "Camera operation: pan_up",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_pan_down",
+    "name": "pan_down",
+    "desc": "Camera operation: pan_down",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_zoom_in",
+    "name": "zoom_in",
+    "desc": "Camera operation: zoom_in",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_zoom_out",
+    "name": "zoom_out",
+    "desc": "Camera operation: zoom_out",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_fit_selection",
+    "name": "fit_selection",
+    "desc": "Camera operation: fit_selection",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_focus_point",
+    "name": "focus_point",
+    "desc": "Camera operation: focus_point",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_toggle_orthogonal",
+    "name": "toggle_orthogonal",
+    "desc": "Camera operation: toggle_orthogonal",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_toggle_perspective",
+    "name": "toggle_perspective",
+    "desc": "Camera operation: toggle_perspective",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_reset_view",
+    "name": "reset_view",
+    "desc": "Camera operation: reset_view",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_set_camera_position",
+    "name": "set_camera_position",
+    "desc": "Camera operation: set_camera_position",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_set_camera_rotation",
+    "name": "set_camera_rotation",
+    "desc": "Camera operation: set_camera_rotation",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_camera_set_camera_fov",
+    "name": "set_camera_fov",
+    "desc": "Camera operation: set_camera_fov",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_set_breakpoint",
+    "name": "set_breakpoint",
+    "desc": "Debugger operation: set_breakpoint",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_remove_breakpoint",
+    "name": "remove_breakpoint",
+    "desc": "Debugger operation: remove_breakpoint",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_clear_breakpoints",
+    "name": "clear_breakpoints",
+    "desc": "Debugger operation: clear_breakpoints",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_add_watch",
+    "name": "add_watch",
+    "desc": "Debugger operation: add_watch",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_remove_watch",
+    "name": "remove_watch",
+    "desc": "Debugger operation: remove_watch",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_clear_watches",
+    "name": "clear_watches",
+    "desc": "Debugger operation: clear_watches",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_step_over",
+    "name": "step_over",
+    "desc": "Debugger operation: step_over",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_step_into",
+    "name": "step_into",
+    "desc": "Debugger operation: step_into",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_step_out",
+    "name": "step_out",
+    "desc": "Debugger operation: step_out",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_continue_execution",
+    "name": "continue_execution",
+    "desc": "Debugger operation: continue_execution",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_pause_execution",
+    "name": "pause_execution",
+    "desc": "Debugger operation: pause_execution",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_stop_execution",
+    "name": "stop_execution",
+    "desc": "Debugger operation: stop_execution",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_restart_execution",
+    "name": "restart_execution",
+    "desc": "Debugger operation: restart_execution",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_inspect_variable",
+    "name": "inspect_variable",
+    "desc": "Debugger operation: inspect_variable",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_modify_variable",
+    "name": "modify_variable",
+    "desc": "Debugger operation: modify_variable",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_get_call_stack",
+    "name": "get_call_stack",
+    "desc": "Debugger operation: get_call_stack",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_get_memory_usage",
+    "name": "get_memory_usage",
+    "desc": "Debugger operation: get_memory_usage",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_debug_get_profiler_data",
+    "name": "get_profiler_data",
+    "desc": "Debugger operation: get_profiler_data",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_create_folder",
+    "name": "create_folder",
+    "desc": "File operation: create_folder",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_delete_folder",
+    "name": "delete_folder",
+    "desc": "File operation: delete_folder",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_rename_folder",
+    "name": "rename_folder",
+    "desc": "File operation: rename_folder",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_create_file",
+    "name": "create_file",
+    "desc": "File operation: create_file",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_delete_file",
+    "name": "delete_file",
+    "desc": "File operation: delete_file",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_rename_file",
+    "name": "rename_file",
+    "desc": "File operation: rename_file",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_duplicate_file",
+    "name": "duplicate_file",
+    "desc": "File operation: duplicate_file",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_move_file",
+    "name": "move_file",
+    "desc": "File operation: move_file",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_copy_file",
+    "name": "copy_file",
+    "desc": "File operation: copy_file",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_open_file_in_editor",
+    "name": "open_file_in_editor",
+    "desc": "File operation: open_file_in_editor",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_reveal_in_explorer",
+    "name": "reveal_in_explorer",
+    "desc": "File operation: reveal_in_explorer",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_reimport_resource",
+    "name": "reimport_resource",
+    "desc": "File operation: reimport_resource",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_file_reload_resource",
+    "name": "reload_resource",
+    "desc": "File operation: reload_resource",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_project",
+    "name": "build_project",
+    "desc": "Build operation: build_project",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_export_project",
+    "name": "export_project",
+    "desc": "Build operation: export_project",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_run_project",
+    "name": "run_project",
+    "desc": "Build operation: run_project",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_run_scene",
+    "name": "run_scene",
+    "desc": "Build operation: run_scene",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_for_windows",
+    "name": "build_for_windows",
+    "desc": "Build operation: build_for_windows",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_for_linux",
+    "name": "build_for_linux",
+    "desc": "Build operation: build_for_linux",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_for_macos",
+    "name": "build_for_macos",
+    "desc": "Build operation: build_for_macos",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_for_web",
+    "name": "build_for_web",
+    "desc": "Build operation: build_for_web",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_for_android",
+    "name": "build_for_android",
+    "desc": "Build operation: build_for_android",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_build_for_ios",
+    "name": "build_for_ios",
+    "desc": "Build operation: build_for_ios",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_run_tests",
+    "name": "run_tests",
+    "desc": "Build operation: run_tests",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_clear_build_cache",
+    "name": "clear_build_cache",
+    "desc": "Build operation: clear_build_cache",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_build_force_reimport_all",
+    "name": "force_reimport_all",
+    "desc": "Build operation: force_reimport_all",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_move",
+    "name": "mouse_move",
+    "desc": "Input simulation: mouse_move",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_click",
+    "name": "mouse_click",
+    "desc": "Input simulation: mouse_click",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_release",
+    "name": "mouse_release",
+    "desc": "Input simulation: mouse_release",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_double_click",
+    "name": "mouse_double_click",
+    "desc": "Input simulation: mouse_double_click",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_scroll_up",
+    "name": "mouse_scroll_up",
+    "desc": "Input simulation: mouse_scroll_up",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_scroll_down",
+    "name": "mouse_scroll_down",
+    "desc": "Input simulation: mouse_scroll_down",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_mouse_drag",
+    "name": "mouse_drag",
+    "desc": "Input simulation: mouse_drag",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_key_press",
+    "name": "key_press",
+    "desc": "Input simulation: key_press",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_key_release",
+    "name": "key_release",
+    "desc": "Input simulation: key_release",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_type_text",
+    "name": "type_text",
+    "desc": "Input simulation: type_text",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_gamepad_button_press",
+    "name": "gamepad_button_press",
+    "desc": "Input simulation: gamepad_button_press",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_gamepad_button_release",
+    "name": "gamepad_button_release",
+    "desc": "Input simulation: gamepad_button_release",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_gamepad_stick_left",
+    "name": "gamepad_stick_left",
+    "desc": "Input simulation: gamepad_stick_left",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_gamepad_stick_right",
+    "name": "gamepad_stick_right",
+    "desc": "Input simulation: gamepad_stick_right",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_touch_press",
+    "name": "touch_press",
+    "desc": "Input simulation: touch_press",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_touch_release",
+    "name": "touch_release",
+    "desc": "Input simulation: touch_release",
+    "type": "control"
+  },
+  {
+    "id": "ctrl_input_touch_drag",
+    "name": "touch_drag",
+    "desc": "Input simulation: touch_drag",
+    "type": "control"
+  }
+]
