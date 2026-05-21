@@ -7,7 +7,88 @@
 
 ---
 
-## UI 界面显示 / UI Display
+## 工具架构说明 / Tool Architecture
+
+### 视觉与控制分离逻辑 / Visual vs Control Separation
+
+AgenticGodot 的工具系统采用**视觉/控制分离架构**，这是整个系统的核心设计原则：
+
+> AgenticGodot's tool system adopts a **Visual vs Control separation architecture**, which is the core design principle of the entire system:
+
+- **视觉工具（Visual Tools）**: 以只读方式获取 Godot 引擎当前状态，返回预览、视图、属性值等数据。**不修改任何引擎状态**。命名前缀为 `ui_visual_*`、`node_visual_*`、`prop_visual_*`、`render_visual_*`、`anim_visual_*`、`physics_visual_*`、`settings_visual_*`、`io_visual_*`、`vis_*`。
+
+> **Visual Tools**: Read-only access to current Godot engine state, returning previews, views, property values, etc. **Does not modify any engine state.** Named with prefixes `ui_visual_*`, `node_visual_*`, `prop_visual_*`, `render_visual_*`, `anim_visual_*`, `physics_visual_*`, `settings_visual_*`, `io_visual_*`, `vis_*`.
+
+- **控制工具（Control Tools）**: 修改 Godot 引擎状态，执行操作。包括创建节点、设置属性、模拟输入、执行命令等。命名前缀为 `ui_control_*`、`node_control_*`、`prop_control_*`、`ctrl_*` 等。
+
+> **Control Tools**: Modify Godot engine state, execute operations. Includes creating nodes, setting properties, simulating input, executing commands, etc. Named with prefixes `ui_control_*`, `node_control_*`, `prop_control_*`, `ctrl_*`, etc.
+
+### 路由机制 / Routing Mechanism
+
+MCP 请求通过以下路由路径分发：
+
+> MCP requests are dispatched through the following routing path:
+
+```
+JSON-RPC 请求
+    │
+    ▼
+MCP 协议层 (mcp_protocol.cpp)
+    ├── method: "tools/list"       → 返回全部工具列表
+    ├── method: "tools/visual/list" → 返回视觉工具列表
+    ├── method: "tools/control/list" → 返回控制工具列表
+    ├── method: "server/info"      → 返回服务信息
+    └── method: "tool/call"        → 根据 tool_id 路由
+            │
+            ├── 视觉工具前缀匹配
+            │   ├── ui_visual_*    → visual_tools.cpp
+            │   ├── node_visual_*  → visual_tools.cpp
+            │   ├── prop_visual_*  → visual_tools.cpp
+            │   ├── render_visual_* → visual_tools.cpp
+            │   ├── anim_visual_*  → visual_tools.cpp
+            │   ├── physics_visual_* → visual_tools.cpp
+            │   ├── settings_visual_* → visual_tools.cpp
+            │   ├── io_visual_*    → visual_tools.cpp
+            │   └── vis_*          → visual_tools.cpp
+            │
+            └── 控制工具前缀匹配
+                ├── ui_control_*   → control_tools.cpp
+                ├── node_control_* → control_tools.cpp
+                ├── prop_control_* → control_tools.cpp
+                ├── ctrl_*         → control_tools.cpp
+                ├── render_control_* → control_tools.cpp
+                ├── anim_control_* → control_tools.cpp
+                ├── physics_control_* → control_tools.cpp
+                ├── settings_control_* → control_tools.cpp
+                └── io_control_*   → control_tools.cpp
+```
+
+### 工具分层结构 / Tool Layering
+
+工具定义分为三层：
+
+> Tool definitions consist of three layers:
+
+| 层级 / Layer | 来源 / Source | 数量 / Count | 说明 / Description |
+|---|---|---|---|
+| **基础定义 / Base** | `tools_definition/visual/base/` + `tools_definition/control/base/` | 346 | 核心工具定义，覆盖最常用的功能和属性 |
+| **扩展定义 / Extended** | `tools_definition/visual/extended/` + `tools_definition/control/extended/` | 328 | 扩展工具，覆盖更细粒度或更边缘的功能 |
+| **源码内置 / Native** | `src/` 中 C++ 直接注册 | 314 | 直接在 Godot 引擎源码中实现的工具 |
+| **总计 / Total** | — | **674** | 去重合并后的实际可用工具数 |
+
+---
+
+## 视觉工具表格 / Visual Tool Tables
+
+**视觉工具**以只读方式获取 Godot 引擎当前状态，返回预览和属性数据，不修改任何引擎状态。
+
+> **Visual Tools** read-only access to current Godot engine state, returning previews and property data without modifying any state.
+
+### UI 界面显示 / UI Display
+
+UI 界面显示工具用于获取 Godot 编辑器各面板和菜单的当前状态。
+
+> UI display tools retrieve the current state of Godot editor panels and menus.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -32,7 +113,11 @@
 | 19 | `ui_visual_dock_history` | dock_history | History dock display |
 | 20 | `ui_visual_dock_node` | dock_node | Node dock display |
 
-## 节点视觉 / Node Visual
+### 节点视觉 / Node Visual
+
+节点视觉工具用于获取场景树中各类节点的显示信息。
+
+> Node visual tools retrieve display information for various node types in the scene tree.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -86,7 +171,11 @@
 | 48 | `node_visual_ui_vboxcontainer` | node_display_UI/VBoxContainer | Display UI/VBoxContainer in scene tree |
 | 49 | `node_visual_ui_hboxcontainer` | node_display_UI/HBoxContainer | Display UI/HBoxContainer in scene tree |
 
-## 属性视觉 / Property Visual
+### 属性视觉 / Property Visual
+
+属性视觉工具用于查看节点的基本变换和渲染属性。
+
+> Property visual tools for viewing basic transform and rendering properties of nodes.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -104,7 +193,11 @@
 | 12 | `prop_visual_custom_multiplayer` | property_display_custom_multiplayer | Display node Custom multiplayer setting |
 | 13 | `prop_visual_physics_interpolation_mode` | property_display_physics_interpolation_mode | Display node Physics interpolation |
 
-## 渲染视觉 / Render Visual
+### 渲染视觉 / Render Visual
+
+渲染视觉工具用于查看视口和渲染管线的当前状态。
+
+> Render visual tools for viewing current viewport and rendering pipeline state.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -124,7 +217,11 @@
 | 14 | `render_visual_render_lod` | render_display_render_lod | Display LOD settings |
 | 15 | `render_visual_render_occlusion` | render_display_render_occlusion | Display Occlusion culling |
 
-## 动画视觉 / Animation Visual
+### 动画视觉 / Animation Visual
+
+动画视觉工具用于查看动画编辑器的状态，包括时间线、关键帧和播放信息。
+
+> Animation visual tools for viewing animation editor state, including timeline, keyframes, and playback info.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -138,7 +235,11 @@
 | 8 | `anim_visual_animation_blend` | anim_display_animation_blend | Display Animation blending |
 | 9 | `anim_visual_animation_state_machine` | anim_display_animation_state_machine | Display State machine transitions |
 
-## 物理视觉 / Physics Visual
+### 物理视觉 / Physics Visual
+
+物理视觉工具用于查看物理世界的参数，包括重力、阻尼、碰撞层等。
+
+> Physics visual tools for viewing physics world parameters including gravity, damping, collision layers, etc.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -154,7 +255,11 @@
 | 10 | `physics_visual_vehicle_params` | physics_display_vehicle_params | Display Vehicle parameters |
 | 11 | `physics_visual_character_params` | physics_display_character_params | Display Character parameters |
 
-## 设置视觉 / Settings Visual
+### 设置视觉 / Settings Visual
+
+设置视觉工具用于查看 Godot 项目设置中各分类的当前配置。
+
+> Settings visual tools for viewing current configuration of each category in Godot project settings.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -174,7 +279,11 @@
 | 14 | `settings_visual_physics_layers` | settings_display_physics_layers | Display Physics layers |
 | 15 | `settings_visual_shader_globals` | settings_display_shader_globals | Display Shader global variables |
 
-## IO 视觉 / I/O Visual
+### IO 视觉 / I/O Visual
+
+IO 视觉工具用于查看输入映射和 I/O 状态。
+
+> I/O visual tools for viewing input mappings and I/O state.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -190,7 +299,11 @@
 | 10 | `io_visual_profiler` | io_display_profiler | Display Profiler data |
 | 11 | `io_visual_network_socket` | io_display_network_socket | Display Network socket control |
 
-## 脚本视觉 / Script Visual
+### 脚本视觉 / Script Visual
+
+脚本视觉工具用于查看脚本编辑器中的内容和调试信息。
+
+> Script visual tools for viewing script editor content and debug information.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -205,7 +318,11 @@
 | 9 | `script_visual_csharp_highlighter` | script_display_csharp_highlighter | Display C# syntax highlighting |
 | 10 | `script_visual_autocomplete` | script_display_autocomplete | Display Autocomplete suggestions |
 
-## 资源视觉 / Resource Visual
+### 资源视觉 / Resource Visual
+
+资源视觉工具用于查看资源导入设置和编辑器。
+
+> Resource visual tools for viewing resource import settings and editors.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -221,7 +338,11 @@
 | 10 | `resource_visual_polygon_editor` | resource_display_polygon_editor | Display Polygon editor |
 | 11 | `resource_visual_resource_list` | resource_display_resource_list | Display Resource list display |
 
-## 项目视觉 / Project Visual
+### 项目视觉 / Project Visual
+
+项目视觉工具用于查看项目元数据和编辑器状态。
+
+> Project visual tools for viewing project metadata and editor state.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -237,7 +358,11 @@
 | 10 | `project_visual_undo_redo_history` | project_display_undo_redo_history | Display Undo/redo history |
 | 11 | `project_visual_version_control` | project_display_version_control | Display Version control integration |
 
-## 视觉 - 变换 / Visual - Transform
+### 视觉 - 变换 / Visual - Transform
+
+视觉变换工具用于分别查看位置、旋转、缩放和速度的各分量值。
+
+> Visual transform tools for viewing individual position, rotation, scale, and velocity components.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -257,7 +382,11 @@
 | 14 | `vis_transform_angular_velocity_y` | display_transform_angular_velocity_y | Display node angular_velocity.y |
 | 15 | `vis_transform_angular_velocity_z` | display_transform_angular_velocity_z | Display node angular_velocity.z |
 
-## 视觉 - 颜色 / Visual - Color
+### 视觉 - 颜色 / Visual - Color
+
+视觉颜色工具用于查看各种颜色属性的各通道分量。
+
+> Visual color tools for viewing individual channel components of various color properties.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -294,7 +423,11 @@
 | 31 | `vis_color_shadow_color_b` | display_color_shadow_color_b | Display shadow_color.b |
 | 32 | `vis_color_shadow_color_a` | display_color_shadow_color_a | Display shadow_color.a |
 
-## 视觉 - 相机 / Visual - Camera
+### 视觉 - 相机 / Visual - Camera
+
+视觉相机工具用于查看编辑器中 3D 视口的相机控制状态。
+
+> Visual camera tools for viewing 3D viewport camera control state in the editor.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -317,7 +450,11 @@
 | 17 | `vis_camera_set_camera_rotation` | display_camera_set_camera_rotation | Display camera set_camera_rotation |
 | 18 | `vis_camera_set_camera_fov` | display_camera_set_camera_fov | Display camera set_camera_fov |
 
-## 视觉 - 监控 / Visual - Monitor
+### 视觉 - 监控 / Visual - Monitor
+
+视觉监控工具用于查看引擎运行时性能指标。
+
+> Visual monitor tools for viewing engine runtime performance metrics.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -337,7 +474,11 @@
 | 14 | `vis_monitor_gpu_time` | display_monitor_gpu_time | Display gpu_time |
 | 15 | `vis_monitor_frame_rate` | display_monitor_frame_rate | Display frame_rate |
 
-## 视觉 - 场景 / Visual - Scene
+### 视觉 - 场景 / Visual - Scene
+
+视觉场景工具用于查看场景文件和节点的管理状态。
+
+> Visual scene tools for viewing scene file and node management state.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -355,7 +496,11 @@
 | 12 | `vis_scene_get_node_list` | display_scene_get_node_list | Display scene get_node_list |
 | 13 | `vis_scene_get_node_path` | display_scene_get_node_path | Display scene get_node_path |
 
-## 视觉 - 渲染 / Visual - Render
+### 视觉 - 渲染 / Visual - Render
+
+视觉渲染工具用于查看渲染环境的高级参数。
+
+> Visual render tools for viewing advanced render environment parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -370,7 +515,11 @@
 | 9 | `vis_render_tonemap_exposure` | display_render_tonemap_exposure | Display rendering tonemap_exposure |
 | 10 | `vis_render_tonemap_white_point` | display_render_tonemap_white_point | Display rendering tonemap_white_point |
 
-## 视觉 - 物理 / Visual - Physics
+### 视觉 - 物理 / Visual - Physics
+
+视觉物理工具用于查看物理体的各项参数。
+
+> Visual physics tools for viewing physics body parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -383,7 +532,11 @@
 | 7 | `vis_physics_max_contacts_reported` | display_physics_max_contacts_reported | Display physics max_contacts_reported |
 | 8 | `vis_physics_continuous_cd` | display_physics_continuous_cd | Display physics continuous_cd |
 
-## 视觉 - 音频 / Visual - Audio
+### 视觉 - 音频 / Visual - Audio
+
+视觉音频工具用于查看音频播放器的参数。
+
+> Visual audio tools for viewing audio player parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -395,7 +548,11 @@
 | 6 | `vis_audio_max_polyphony` | display_audio_max_polyphony | Display audio max_polyphony |
 | 7 | `vis_audio_stream_paused` | display_audio_stream_paused | Display audio stream_paused |
 
-## 视觉 - UI / Visual - UI
+### 视觉 - UI / Visual - UI
+
+视觉 UI 工具用于查看界面控件的排版和字体参数。
+
+> Visual UI tools for viewing layout and font parameters of UI controls.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -417,7 +574,19 @@
 | 16 | `vis_ui_anchor_right` | display_ui_anchor_right | Display UI anchor_right |
 | 17 | `vis_ui_anchor_bottom` | display_ui_anchor_bottom | Display UI anchor_bottom |
 
-## UI 控制 / UI Control
+---
+
+## 控制工具表格 / Control Tool Tables
+
+**控制工具**修改 Godot 引擎状态，执行操作。包括创建/删除节点、设置属性、模拟用户输入、执行编辑器命令等。
+
+> **Control Tools** modify Godot engine state and execute operations. Includes creating/deleting nodes, setting properties, simulating user input, executing editor commands, etc.
+
+### UI 控制 / UI Control
+
+UI 控制工具用于操作 Godot 编辑器界面的按钮、菜单和工具栏。
+
+> UI control tools for operating Godot editor interface buttons, menus, and toolbars.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -438,7 +607,11 @@
 | 15 | `ui_control_dock_switch_scene` | dock_switch_scene | Switch to scene dock |
 | 16 | `ui_control_dock_switch_import` | dock_switch_import | Switch to import dock |
 
-## 节点控制 / Node Control
+### 节点控制 / Node Control
+
+节点控制工具用于在场景树中创建各类节点实例。
+
+> Node control tools for creating various node instances in the scene tree.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -492,7 +665,11 @@
 | 48 | `node_control_create_ui_vboxcontainer` | node_create_UI/VBoxContainer | Create UI/VBoxContainer instance |
 | 49 | `node_control_create_ui_hboxcontainer` | node_create_UI/HBoxContainer | Create UI/HBoxContainer instance |
 
-## 属性控制 / Property Control
+### 属性控制 / Property Control
+
+属性控制工具用于设置节点的基本变换和渲染属性。
+
+> Property control tools for setting basic transform and rendering properties of nodes.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -510,7 +687,11 @@
 | 12 | `prop_control_custom_multiplayer` | property_set_custom_multiplayer | Set node Custom multiplayer setting |
 | 13 | `prop_control_physics_interpolation_mode` | property_set_physics_interpolation_mode | Set node Physics interpolation |
 
-## 渲染控制 / Render Control
+### 渲染控制 / Render Control
+
+渲染控制工具用于修改视口和渲染管线的参数。
+
+> Render control tools for modifying viewport and rendering pipeline parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -530,7 +711,11 @@
 | 14 | `render_control_render_lod` | render_modify_render_lod | Modify LOD settings |
 | 15 | `render_control_render_occlusion` | render_modify_render_occlusion | Modify Occlusion culling |
 
-## 动画控制 / Animation Control
+### 动画控制 / Animation Control
+
+动画控制工具用于修改动画编辑器的状态。
+
+> Animation control tools for modifying animation editor state.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -544,7 +729,11 @@
 | 8 | `anim_control_animation_blend` | anim_modify_animation_blend | Modify Animation blending |
 | 9 | `anim_control_animation_state_machine` | anim_modify_animation_state_machine | Modify State machine transitions |
 
-## 物理控制 / Physics Control
+### 物理控制 / Physics Control
+
+物理控制工具用于修改物理世界的参数。
+
+> Physics control tools for modifying physics world parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -560,7 +749,11 @@
 | 10 | `physics_control_vehicle_params` | physics_modify_vehicle_params | Modify Vehicle parameters |
 | 11 | `physics_control_character_params` | physics_modify_character_params | Modify Character parameters |
 
-## 设置控制 / Settings Control
+### 设置控制 / Settings Control
+
+设置控制工具用于修改 Godot 项目设置中各分类的配置。
+
+> Settings control tools for modifying configuration of each category in Godot project settings.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -580,7 +773,11 @@
 | 14 | `settings_control_physics_layers` | settings_modify_physics_layers | Modify Physics layers |
 | 15 | `settings_control_shader_globals` | settings_modify_shader_globals | Modify Shader global variables |
 
-## IO 控制 / I/O Control
+### IO 控制 / I/O Control
+
+IO 控制工具用于操作输入映射和 I/O 设备。
+
+> I/O control tools for operating input mappings and I/O devices.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -596,7 +793,11 @@
 | 10 | `io_control_profiler` | io_command_profiler | Control Profiler data |
 | 11 | `io_control_network_socket` | io_command_network_socket | Control Network socket control |
 
-## 脚本控制 / Script Control
+### 脚本控制 / Script Control
+
+脚本控制工具用于管理脚本编辑器和调试器。
+
+> Script control tools for managing the script editor and debugger.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -611,7 +812,11 @@
 | 9 | `script_control_csharp_highlighter` | script_manage_csharp_highlighter | Manage C# syntax highlighting |
 | 10 | `script_control_autocomplete` | script_manage_autocomplete | Manage Autocomplete suggestions |
 
-## 资源控制 / Resource Control
+### 资源控制 / Resource Control
+
+资源控制工具用于管理资源的导入设置和编辑。
+
+> Resource control tools for managing resource import settings and editing.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -627,7 +832,11 @@
 | 10 | `resource_control_polygon_editor` | resource_manage_polygon_editor | Manage Polygon editor |
 | 11 | `resource_control_resource_list` | resource_manage_resource_list | Manage Resource list display |
 
-## 项目控制 / Project Control
+### 项目控制 / Project Control
+
+项目控制工具用于管理项目元数据和编辑器状态。
+
+> Project control tools for managing project metadata and editor state.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -643,7 +852,11 @@
 | 10 | `project_control_undo_redo_history` | project_manage_undo_redo_history | Manage Undo/redo history |
 | 11 | `project_control_version_control` | project_manage_version_control | Manage Version control integration |
 
-## 控制 - 变换 / Control - Transform
+### 控制 - 变换 / Control - Transform
+
+控制变换工具用于分别设置位置、旋转、缩放和速度的各分量值。
+
+> Control transform tools for setting individual position, rotation, scale, and velocity components.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -663,7 +876,11 @@
 | 14 | `ctrl_transform_angular_velocity_y` | set_transform_angular_velocity_y | Set node angular_velocity.y |
 | 15 | `ctrl_transform_angular_velocity_z` | set_transform_angular_velocity_z | Set node angular_velocity.z |
 
-## 控制 - 颜色 / Control - Color
+### 控制 - 颜色 / Control - Color
+
+控制颜色工具用于设置各种颜色属性的各通道分量。
+
+> Control color tools for setting individual channel components of various color properties.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -700,7 +917,11 @@
 | 31 | `ctrl_color_shadow_color_b` | set_color_shadow_color_b | Set shadow_color.b |
 | 32 | `ctrl_color_shadow_color_a` | set_color_shadow_color_a | Set shadow_color.a |
 
-## 控制 - 相机 / Control - Camera
+### 控制 - 相机 / Control - Camera
+
+控制相机工具用于操作编辑器中 3D 视口的相机。
+
+> Control camera tools for operating the 3D viewport camera in the editor.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -723,7 +944,11 @@
 | 17 | `ctrl_camera_set_camera_rotation` | set_camera_rotation | Camera operation: set_camera_rotation |
 | 18 | `ctrl_camera_set_camera_fov` | set_camera_fov | Camera operation: set_camera_fov |
 
-## 控制 - 动画 / Control - Animation
+### 控制 - 动画 / Control - Animation
+
+控制动画工具用于添加、删除和修改关键帧。
+
+> Control animation tools for adding, removing, and modifying keyframes.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -740,7 +965,11 @@
 | 11 | `ctrl_anim_scale_keyframes` | scale_keyframes | Animation operation: scale_keyframes |
 | 12 | `ctrl_anim_insert_key_at_time` | insert_key_at_time | Animation operation: insert_key_at_time |
 
-## 控制 - 音频 / Control - Audio
+### 控制 - 音频 / Control - Audio
+
+控制音频工具用于修改音频播放器的参数。
+
+> Control audio tools for modifying audio player parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -752,7 +981,11 @@
 | 6 | `ctrl_audio_max_polyphony` | control_audio_max_polyphony | Control audio max_polyphony |
 | 7 | `ctrl_audio_stream_paused` | control_audio_stream_paused | Control audio stream_paused |
 
-## 控制 - 构建 / Control - Build
+### 控制 - 构建 / Control - Build
+
+控制构建工具用于执行项目构建和导出操作。
+
+> Control build tools for executing project build and export operations.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -770,7 +1003,11 @@
 | 12 | `ctrl_build_clear_build_cache` | clear_build_cache | Build operation: clear_build_cache |
 | 13 | `ctrl_build_force_reimport_all` | force_reimport_all | Build operation: force_reimport_all |
 
-## 控制 - 调试 / Control - Debug
+### 控制 - 调试 / Control - Debug
+
+控制调试工具用于管理断点、监视变量和执行调试控制。
+
+> Control debug tools for managing breakpoints, watch variables, and debug execution control.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -793,7 +1030,11 @@
 | 17 | `ctrl_debug_get_memory_usage` | get_memory_usage | Debugger operation: get_memory_usage |
 | 18 | `ctrl_debug_get_profiler_data` | get_profiler_data | Debugger operation: get_profiler_data |
 
-## 控制 - 文件 / Control - File
+### 控制 - 文件 / Control - File
+
+控制文件工具用于在文件系统中创建、删除、移动和复制文件/文件夹。
+
+> Control file tools for creating, deleting, moving, and copying files/folders in the filesystem.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -811,7 +1052,11 @@
 | 12 | `ctrl_file_reimport_resource` | reimport_resource | File operation: reimport_resource |
 | 13 | `ctrl_file_reload_resource` | reload_resource | File operation: reload_resource |
 
-## 控制 - 输入 / Control - Input
+### 控制 - 输入 / Control - Input
+
+控制输入工具用于模拟鼠标、键盘、手柄和触摸输入。
+
+> Control input tools for simulating mouse, keyboard, gamepad, and touch input.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -833,7 +1078,11 @@
 | 16 | `ctrl_input_touch_release` | touch_release | Input simulation: touch_release |
 | 17 | `ctrl_input_touch_drag` | touch_drag | Input simulation: touch_drag |
 
-## 控制 - 物理 / Control - Physics
+### 控制 - 物理 / Control - Physics
+
+控制物理工具用于设置物理体的物理属性。
+
+> Control physics tools for setting physics body physical properties.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -846,7 +1095,11 @@
 | 7 | `ctrl_physics_max_contacts_reported` | set_physics_max_contacts_reported | Set physics max_contacts_reported |
 | 8 | `ctrl_physics_continuous_cd` | set_physics_continuous_cd | Set physics continuous_cd |
 
-## 控制 - 渲染 / Control - Render
+### 控制 - 渲染 / Control - Render
+
+控制渲染工具用于调整渲染环境的高级参数。
+
+> Control render tools for adjusting advanced render environment parameters.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -861,7 +1114,11 @@
 | 9 | `ctrl_render_tonemap_exposure` | adjust_render_tonemap_exposure | Adjust tonemap_exposure |
 | 10 | `ctrl_render_tonemap_white_point` | adjust_render_tonemap_white_point | Adjust tonemap_white_point |
 
-## 控制 - 场景 / Control - Scene
+### 控制 - 场景 / Control - Scene
+
+控制场景工具用于管理场景文件的创建、打开、保存和节点查询。
+
+> Control scene tools for managing scene file creation, opening, saving, and node queries.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -879,7 +1136,11 @@
 | 12 | `ctrl_scene_get_node_list` | get_node_list | Scene operation: get_node_list |
 | 13 | `ctrl_scene_get_node_path` | get_node_path | Scene operation: get_node_path |
 
-## 控制 - UI / Control - UI
+### 控制 - UI / Control - UI
+
+控制 UI 工具用于设置界面控件的排版、字体和锚点参数。
+
+> Control UI tools for setting layout, font, and anchor parameters of UI controls.
 
 | # | ID | 名称 / Name | 描述 / Description |
 |---|---|---|---|
@@ -900,3 +1161,345 @@
 | 15 | `ctrl_ui_anchor_top` | set_ui_anchor_top | Set UI anchor_top |
 | 16 | `ctrl_ui_anchor_right` | set_ui_anchor_right | Set UI anchor_right |
 | 17 | `ctrl_ui_anchor_bottom` | set_ui_anchor_bottom | Set UI anchor_bottom |
+
+---
+
+## MCP 协议调用示例 / MCP Protocol Call Examples
+
+以下示例展示使用 JSON-RPC 2.0 协议调用不同分类的 AgenticGodot 工具。
+
+> The following examples demonstrate calling AgenticGodot tools of different categories using JSON-RPC 2.0 protocol.
+
+### 视觉工具调用示例 / Visual Tool Call Examples
+
+**获取场景树预览 / Get Scene Tree Preview:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "ui_visual_scene_tree_view",
+    "arguments": {}
+  },
+  "id": 1
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "success": true,
+    "preview": {
+      "type": "scene_tree",
+      "nodes": [
+        {"name": "root", "type": "Node", "children": [
+          {"name": "Camera2D", "type": "Camera2D"},
+          {"name": "Sprite2D", "type": "Sprite2D"}
+        ]}
+      ],
+      "selected": "/root/Camera2D"
+    }
+  }
+}
+```
+
+**查看性能监控 / View Performance Monitor:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "vis_monitor_performance_metrics",
+    "arguments": {}
+  },
+  "id": 2
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "success": true,
+    "preview": {
+      "fps": 60,
+      "memory_mb": 145.2,
+      "draw_calls": 128,
+      "nodes": 42,
+      "physics_bodies": 5
+    }
+  }
+}
+```
+
+**查看节点颜色 / View Node Color:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "vis_color_modulate_r",
+    "arguments": {
+      "node_path": "/root/Sprite2D"
+    }
+  },
+  "id": 3
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "success": true,
+    "preview": {
+      "node_path": "/root/Sprite2D",
+      "property": "modulate.r",
+      "value": 1.0
+    }
+  }
+}
+```
+
+### 控制工具调用示例 / Control Tool Call Examples
+
+**创建新节点 / Create New Node:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "node_control_create_sprite2d",
+    "arguments": {
+      "name": "PlayerSprite",
+      "parent_path": "/root",
+      "position": [100, 200]
+    }
+  },
+  "id": 4
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 4,
+  "result": {
+    "success": true,
+    "action": "node_created",
+    "node_path": "/root/PlayerSprite",
+    "node_type": "Sprite2D"
+  }
+}
+```
+
+**设置节点位置 / Set Node Position:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "prop_control_position",
+    "arguments": {
+      "node_path": "/root/PlayerSprite",
+      "value": [300, 400, 0]
+    }
+  },
+  "id": 5
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "success": true,
+    "action": "property_set",
+    "property": "position",
+    "previous_value": [100, 200, 0],
+    "new_value": [300, 400, 0]
+  }
+}
+```
+
+**设置颜色分量 / Set Color Channel:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "ctrl_color_modulate_a",
+    "arguments": {
+      "node_path": "/root/PlayerSprite",
+      "value": 0.5
+    }
+  },
+  "id": 6
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 6,
+  "result": {
+    "success": true,
+    "action": "property_set",
+    "property": "modulate.a",
+    "previous_value": 1.0,
+    "new_value": 0.5
+  }
+}
+```
+
+**模拟输入 / Simulate Input:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "ctrl_input_mouse_move",
+    "arguments": {
+      "x": 640,
+      "y": 360
+    }
+  },
+  "id": 7
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 7,
+  "result": {
+    "success": true,
+    "action": "input_simulated",
+    "type": "mouse_move",
+    "target": [640, 360]
+  }
+}
+```
+
+**操作相机 / Operate Camera:**
+
+请求 / Request:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tool/call",
+  "params": {
+    "tool_id": "ctrl_camera_zoom_in",
+    "arguments": {}
+  },
+  "id": 8
+}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 8,
+  "result": {
+    "success": true,
+    "action": "camera_zoom_in",
+    "current_zoom": 2.0
+  }
+}
+```
+
+### 列表查询示例 / List Query Examples
+
+**获取所有工具列表 / Get All Tools:**
+
+请求 / Request:
+```json
+{"jsonrpc": "2.0", "method": "tools/list", "id": 9}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 9,
+  "result": {
+    "tools": {
+      "ui_visual_file_menu": {"name": "file_menu", "type": "visual", "category": "ui"},
+      "ui_control_menu_file_new": {"name": "menu_file_new", "type": "control", "category": "ui"},
+      "ctrl_transform_position_x": {"name": "set_transform_position_x", "type": "control", "category": "transform"},
+      ...
+    },
+    "total_count": 314,
+    "visual_count": 118,
+    "control_count": 196
+  }
+}
+```
+
+**获取服务器信息 / Get Server Info:**
+
+请求 / Request:
+```json
+{"jsonrpc": "2.0", "method": "server/info", "id": 10}
+```
+
+响应 / Response:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 10,
+  "result": {
+    "server_name": "AgenticGodot MCP Server",
+    "version": "1.0.0",
+    "godot_version": "4.3.1",
+    "tools_count": 314,
+    "visual_count": 118,
+    "control_count": 196,
+    "protocol": "json-rpc-2.0",
+    "transport": "tcp"
+  }
+}
+```
+
+---
+
+## 工具统计摘要 / Tool Statistics Summary
+
+| 统计项 / Metric | 值 / Value |
+|---|---|
+| 视觉工具总数 / Total Visual Tools | 310+ |
+| 控制工具总数 / Total Control Tools | 364+ |
+| 基础定义 / Base Definitions | 346 |
+| 扩展定义 / Extended Definitions | 328 |
+| 源码内置 / Native Built-in | 314 |
+| 去重总计 / Deduplicated Total | **674** |
+
+> 注意：基础定义 + 扩展定义 + 源码内置的去重合并后为 674 个实际可用工具。
+> Note: The deduplicated merge of base + extended + native definitions yields 674 actual usable tools.

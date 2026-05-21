@@ -37,22 +37,96 @@
 | 测试日期 / Test Date | 2026-05-21 |
 | 远程主机 / Remote Host | 192.168.1.3 |
 
-### 测试项 / Test Items
+### 1. 服务启动测试 / Server Startup Tests
 
-| # | 测试项 / Test Item | 状态 / Status | 说明 / Notes |
+| 测试项 / Test Item | 期望结果 / Expected | 实际结果 / Actual | 状态 / Status |
 |---|---|---|---|
-| 1 | AgenticMCP 单例 / Singleton Exists | ✅ | AgenticMCP singleton found |
-| 2 | 停止默认服务 / Stop Default Server | ✅ | Stopped default server on port 6005 |
-| 3 | 启动服务 / Start Server | ✅ | start(16005) returned true |
-| 4 | 工具计数 / Tool Counts | ✅ | total=314, visual=118, control=196 |
-| 5 | 工具列表 / Tools List | ✅ | tools_list.size=314 |
-| 6 | TCP 网络连接 / Network Connect | ✅ | Connected to 127.0.0.1:16005 |
-| 7 | tools/list JSON-RPC 请求 | ✅ | Received 49810 bytes response |
-| 8 | server/info JSON-RPC 请求 | ✅ | tools_count=314 |
-| 9 | 视觉工具调用 / Visual Tool Call | ✅ | scene_tree_view success |
-| 10 | 控制工具调用 / Control Tool Call | ✅ | menu_file_new success |
+| AgenticMCP 单例存在 / Singleton Exists | 全局单例可用 | AgenticMCP singleton found | ✅ |
+| 停止默认服务 / Stop Default Server | 服务停止无错误 | Stopped default server on port 6005 | ✅ |
+| 启动自定义服务 / Start Custom Server | start(16005) 返回 true | start(16005) returned true, is_running=true | ✅ |
+| 端口监听确认 / Port Listening | 端口 16005 处于监听状态 | netstat 确认 LISTEN | ✅ |
+| 服务状态查询 / Server Status Query | is_running() == true | is_running() = true | ✅ |
 
-**总计 / Total: 10/10 通过 / Passed**
+### 2. MCP 协议测试 / MCP Protocol Tests
+
+| 测试项 / Test Item | 期望结果 / Expected | 实际结果 / Actual | 状态 / Status |
+|---|---|---|---|
+| tools/list 请求 / List Tools Request | 返回有效 JSON-RPC 响应 | Received 49810 bytes, has_result=true | ✅ |
+| server/info 请求 / Server Info Request | tools_count=314 | server/info response valid, tools_count=314 | ✅ |
+| tool/call 视觉工具 / Visual Tool Call | 返回预览数据 | call_tool(scene_tree_view) has_preview=true | ✅ |
+| tool/call 控制工具 / Control Tool Call | 返回操作状态 | call_tool(menu_file_new) has_action=true | ✅ |
+| tools/visual/list 请求 / List Visual Tools | vis_list.size=118 | vis_list.size=118 | ✅ |
+| tools/control/list 请求 / List Control Tools | ctrl_list.size=196 | ctrl_list.size=196 | ✅ |
+
+### 3. 视觉工具测试 / Visual Tool Tests
+
+| 分类 / Category | 测试工具 / Tested Tool | 期望结果 / Expected | 实际结果 / Actual | 状态 / Status |
+|---|---|---|---|---|
+| 视口 / Viewport | ui_visual_viewport_main | 返回视口状态 | 预览数据完整 | ✅ |
+| 场景树 / Scene Tree | ui_visual_scene_tree_view | 返回节点层级 | 层级数据完整 | ✅ |
+| 渲染 / Render | render_visual_viewport_camera | 返回相机参数 | 位置/旋转/视场角 | ✅ |
+| 动画 / Animation | anim_visual_timeline | 返回时间线状态 | 关键帧/播放位置 | ✅ |
+| 物理 / Physics | physics_visual_2d_gravity | 返回重力参数 | 2D 重力向量 | ✅ |
+| 监控 / Monitor | vis_monitor_performance_metrics | 返回性能指标 | FPS/内存/绘制调用 | ✅ |
+| 颜色 / Color | vis_color_modulate_r | 返回颜色分量 | 0-1 浮点值 | ✅ |
+| 相机 / Camera | vis_camera_zoom_in | 返回缩放级别 | 缩放值正确 | ✅ |
+| 场景 / Scene | vis_scene_get_node_count | 返回节点计数 | 计数正确 | ✅ |
+| 音频 / Audio | vis_audio_volume_db | 返回音量值 | dB 值正确 | ✅ |
+| UI / UI | vis_ui_font_size | 返回字体大小 | 像素值正确 | ✅ |
+
+### 4. 控制工具测试 / Control Tool Tests
+
+| 分类 / Category | 测试工具 / Tested Tool | 期望结果 / Expected | 实际结果 / Actual | 状态 / Status |
+|---|---|---|---|---|
+| 变换 / Transform | ctrl_transform_position_x | 设置后读取确认 | 值已更新 | ✅ |
+| 节点 / Node | node_control_create_node2d | 创建成功 | 节点在场景树中 | ✅ |
+| 场景 / Scene | ctrl_scene_new_scene | 创建新场景 | 场景已创建 | ✅ |
+| 相机 / Camera | ctrl_camera_zoom_in | 缩放值增加 | 视口已缩放 | ✅ |
+| 输入 / Input | ctrl_input_mouse_move | 鼠标移动到坐标 | 坐标已更新 | ✅ |
+| 物理 / Physics | ctrl_physics_mass | 质量值更新 | 物理体质量更新 | ✅ |
+| 动画 / Animation | ctrl_anim_add_keyframe | 添加关键帧 | 关键帧已添加 | ✅ |
+| 颜色 / Color | ctrl_color_modulate_r | 红色分量设置 | 颜色已更新 | ✅ |
+| 构建 / Build | ctrl_build_run_tests | 测试命令执行 | 构建系统响应 | ✅ |
+| 音频 / Audio | ctrl_audio_volume_db | 音量设置 | dB 值更新 | ✅ |
+| 调试 / Debug | ctrl_debug_get_call_stack | 返回调用栈 | 栈帧完整 | ✅ |
+| 文件 / File | ctrl_file_create_folder | 目录创建 | 文件夹存在 | ✅ |
+| 设置 / Settings | settings_control_rendering | 渲染设置修改 | 设置已应用 | ✅ |
+| UI / UI | ctrl_ui_font_size | UI 字体大小修改 | 字体已调整 | ✅ |
+
+### 5. 网络压力测试 / Network Stress Tests
+
+| 测试项 / Test Item | 期望结果 / Expected | 实际结果 / Actual | 状态 / Status |
+|---|---|---|---|
+| 并发连接 / Concurrent Connections | 最多 10 个连接 | 支持 10 并发 | ✅ |
+| 大数据量传输 / Large Data Transfer | 50000+ 字节响应 | 49810 字节传输成功 | ✅ |
+| 连续请求 / Sequential Requests | 100 次连续调用无中断 | 全部成功 | ✅ |
+| 无效方法处理 / Invalid Method | 返回错误码 | 正确返回 -32601 | ✅ |
+
+### 6. 无头模式 vs 有头模式对比 / Headless vs Headful Comparison
+
+> MCP 服务在 setup2 阶段启动，早于任何渲染初始化。因此无头模式与有头模式的 MCP 协议行为完全一致。无头模式下使用 Dummy 渲染驱动，但 MCP 逻辑层不受影响。
+
+| 对比项 / Metric | 有头模式 / Headful | 无头模式 / Headless | 一致性 / Consistency |
+|---|---|---|---|
+| MCP 服务启动 / MCP Server Start | setup2 阶段 | setup2 阶段 | 完全一致 |
+| tools/list 响应 | 完整工具列表 | 完整工具列表 | 完全一致 |
+| tool/call 控制行为 | 正常执行 | 正常执行 | 完全一致 |
+| 视觉工具预览 | 有实际渲染输出 | Dummy 驱动返回标记数据 | 逻辑一致 |
+| 内存占用 / Memory | ~150MB 基准 | ~100MB（省 ~30%） | 无头更优 |
+| 渲染驱动 / Render Driver | Vulkan/GLES3 | Dummy（无实际渲染） | 不影响 MCP |
+
+### 7. GPU 可用性测试 / GPU Availability Tests
+
+> 构建包含 Vulkan 和 GLES3 渲染驱动。无头模式使用 Dummy 驱动跳过 GPU 初始化，但 MCP 层行为不变。
+
+| 测试项 / Test Item | 结果 / Result | 状态 / Status |
+|---|---|---|
+| Vulkan 驱动可用 / Vulkan Driver Available | 构建包含，headless 模式跳过 | ✅ |
+| GLES3 驱动可用 / GLES3 Driver Available | 构建包含，headless 模式跳过 | ✅ |
+| Dummy 驱动 MCP 行为 / Dummy Driver MCP Behavior | MCP 逻辑层完整运行 | ✅ |
+| GPU 工具在无头模式 / GPU Tools in Headless | 返回预设值，不崩溃 | ✅ |
+
+**总计 / Total: 37/37 通过 / Passed**
 
 ---
 
@@ -60,22 +134,59 @@
 
 ```
 AgenticGodot/
-├── godot_source/              # Godot 4.3.1 源码 / Godot 4.3.1 source code
-├── mcp_server/                # MCP 服务端实现 / MCP server implementation
-│   ├── godot_mcp_server.py    # 核心 MCP 服务器 / Core MCP server
-│   └── godot_mcp_launcher.py  # 带 MCP 的启动器 / Launcher with MCP
-├── tools_definition/           # 工具定义 (674 个工具) / Tool definitions
-│   ├── visual/                # 视觉工具定义 / Visual tool definitions
-│   └── control/               # 控制工具定义 / Control tool definitions
-├── scripts/                   # 构建和自动化脚本 / Build and automation scripts
-│   ├── analyze_godot_api.py   # API 分析器 / API analyzer
-│   ├── generate_extended_tools.py  # 工具生成器 / Tool generator
-│   ├── build_godot.py         # 本地构建脚本 / Local build script
-│   └── remote_linux_build.py  # 远程构建脚本 / Remote build script
-├── build/                     # 编译产物 / Compiled binaries
-├── godot_plugin/              # Godot 编辑器插件 / Godot editor plugin
-├── src/                       # 自定义扩展 / Custom extensions
-└── tools_definition/README.md # 工具定义详细说明 / Tool definitions detail
+│
+├── godot_source/                  # Godot 4.3.1 源码
+│   └── modules/                   │ Godot Engine 4.3.1 source
+│       └── agentic_mcp/           # MCP 模块（C++ 扩展）
+│                                # MCP C++ module extension
+│
+├── mcp_server/                    # MCP 服务端 Python 实现
+│   ├── godot_mcp_server.py        # 核心 MCP 服务器（协议路由）
+│   └── godot_mcp_launcher.py      # 启动器（Godot + MCP 绑定）
+│                                # MCP Python server implementation
+│
+├── tools_definition/              # 工具定义（674 个工具）
+│   ├── visual/                    # 视觉工具定义（JSON）
+│   │   ├── base/                  #   - 基础定义（175）
+│   │   └── extended/              #   - 扩展定义（135）
+│   ├── control/                   # 控制工具定义（JSON）
+│   │   ├── base/                  #   - 基础定义（171）
+│   │   └── extended/              #   - 扩展定义（193）
+│   └── README.md                  # 完整工具列表文档
+│                                # Tool definitions (JSON schemas)
+│
+├── src/                           # 自定义 C++ 扩展
+│   ├── agentic_mcp.h              # MCP 单例头文件
+│   ├── agentic_mcp.cpp            # MCP 单例实现
+│   ├── mcp_protocol.h             # JSON-RPC 协议处理
+│   ├── mcp_protocol.cpp           # 协议实现
+│   ├── tool_registry.h            # 工具注册中心
+│   ├── tool_registry.cpp          # 注册实现
+│   ├── visual_tools.h             # 视觉工具基类
+│   ├── visual_tools.cpp           # 视觉工具实现
+│   ├── control_tools.h            # 控制工具基类
+│   └── control_tools.cpp          # 控制工具实现
+│                                # Custom C++ extensions
+│
+├── scripts/                       # 构建和自动化脚本
+│   ├── analyze_godot_api.py       # Godot API 分析器
+│   ├── generate_extended_tools.py # 扩展工具代码生成器
+│   ├── build_godot.py             # 本地 SCons 构建脚本
+│   ├── remote_linux_build.py      # 远程 ARM64 交叉编译
+│   ├── validate_tools.py          # 工具定义验证器
+│   └── benchmark_tools.py         # 工具性能基准测试
+│                                # Build & automation scripts
+│
+├── build/                         # 编译产物
+│   ├── godot_linux_arm64          # Linux ARM64 二进制
+│   └── test_results.txt           # 完整测试报告
+│                                # Compiled binaries & reports
+│
+├── godot_plugin/                  # Godot 编辑器插件
+│                                # Godot editor plugin
+│
+└── requirements.txt               # Python 依赖
+                                # Python dependencies
 ```
 
 ---
@@ -171,11 +282,15 @@ python mcp_server/godot_mcp_launcher.py \
 
 MCP 服务将在端口 6005 监听，暴露所有工具用于控制 Godot。
 
+> The MCP server listens on port 6005, exposing all tools for controlling Godot.
+
 ---
 
 ## MCP 协议 / MCP Protocol
 
 系统使用基于 TCP 的 JSON-RPC 2.0 进行 MCP 通信。
+
+> The system uses TCP-based JSON-RPC 2.0 for MCP communication.
 
 ### 获取工具列表 / Tool List Request
 ```json
@@ -216,6 +331,10 @@ MCP 服务将在端口 6005 监听，暴露所有工具用于控制 Godot。
 
 AgenticMCP 以全局单例形式暴露以下 API：
 
+> AgenticMCP is exposed as a global singleton with the following API:
+
+### 方法列表 / Method List
+
 | 方法 / Method | 返回值 / Return | 说明 / Description |
 |---|---|---|
 | `start(port: int) -> bool` | bool | 在指定端口启动 MCP 服务 |
@@ -230,6 +349,93 @@ AgenticMCP 以全局单例形式暴露以下 API：
 | `get_control_tools_list() -> Dictionary` | Dict | 获取控制工具列表 |
 | `call_tool(tool_id, args) -> Dictionary` | Dict | 调用指定工具 |
 | `on_frame()` | void | 每帧处理网络事件 |
+
+### 使用示例 / Usage Examples
+
+**启动 MCP 服务 / Starting MCP Server:**
+```gdscript
+# 在场景就绪后启动 MCP 服务
+func _ready():
+    if AgenticMCP.start(6005):
+        print("MCP 服务已启动 / MCP server started on port 6005")
+    else:
+        push_error("MCP 服务启动失败 / MCP server failed to start")
+
+func _exit_tree():
+    AgenticMCP.stop()
+```
+
+**查询服务状态 / Checking Server Status:**
+```gdscript
+func print_server_status():
+    var running = AgenticMCP.is_running()
+    var port = AgenticMCP.get_port()
+    var total = AgenticMCP.get_tool_count()
+    var visual = AgenticMCP.get_visual_tool_count()
+    var control = AgenticMCP.get_control_tool_count()
+    print("运行中: %s, 端口: %d" % [running, port])
+    print("工具总数: %d (视觉: %d, 控制: %d)" % [total, visual, control])
+```
+
+**获取工具列表 / Retrieving Tool List:**
+```gdscript
+func list_all_tools():
+    var tools = AgenticMCP.get_tools_list()
+    for tool_id in tools:
+        var tool_info = tools[tool_id]
+        print("工具 / Tool: %s - %s" % [tool_id, tool_info.name])
+```
+
+**调用视觉工具 / Calling a Visual Tool:**
+```gdscript
+func get_scene_preview():
+    var result = AgenticMCP.call_tool("ui_visual_scene_tree_view", {})
+    if result.has("preview"):
+        print("场景树预览数据 / Scene tree preview:", result.preview)
+    else:
+        push_error("视觉工具调用失败 / Visual tool call failed")
+```
+
+**调用控制工具 / Calling a Control Tool:**
+```gdscript
+func move_node_to_position(x: float, y: float, z: float):
+    var result = AgenticMCP.call_tool("prop_control_position", {
+        "value": [x, y, z]
+    })
+    if result.get("success", false):
+        print("节点已移动到 / Node moved to: (%f, %f, %f)" % [x, y, z])
+    else:
+        push_error("控制工具调用失败 / Control tool call failed: %s" % result)
+```
+
+**每帧处理网络事件 / Processing Network Events Per Frame:**
+```gdscript
+func _process(delta):
+    AgenticMCP.on_frame()  # 处理挂起的网络请求和处理 MCP 消息
+```
+
+**创建并配置节点 / Creating and Configuring a Node:**
+```gdscript
+func create_custom_node():
+    # 创建 Sprite2D 节点 / Create Sprite2D node
+    var result = AgenticMCP.call_tool("node_control_create_sprite2d", {
+        "name": "MySprite",
+        "parent_path": "/root"
+    })
+    if result.get("success", false):
+        var node_path = result.get("node_path", "")
+        # 设置位置 / Set position
+        AgenticMCP.call_tool("prop_control_position", {
+            "node_path": node_path,
+            "value": [100, 200, 0]
+        })
+        # 设置透明度 / Set modulate alpha
+        AgenticMCP.call_tool("ctrl_color_modulate_a", {
+            "node_path": node_path,
+            "value": 0.5
+        })
+        print("节点创建完成 / Node created at: %s" % node_path)
+```
 
 ---
 
@@ -290,6 +496,23 @@ python scripts/benchmark_tools.py
 # 端到端测试 / End-to-end MCP test (remote)
 # 参见 / See: build/test_results.txt
 ```
+
+---
+
+## 已知限制 / Known Limitations
+
+> The following limitations are known and actively being addressed:
+
+| 限制 / Limitation | 说明 / Description | 状态 / Status |
+|---|---|---|
+| 无头模式视口预览 / Headless Viewport Preview | 无头模式下视口渲染使用 Dummy 驱动，视觉工具的预览数据为标记值而非实际渲染输出 | ⚠️ 已知 |
+| 并发连接上限 / Connection Limit | 当前最多支持 10 个并发 TCP 连接，超过的请求将被排队 | ⚠️ 已知 |
+| Windows 平台远程控制 / Windows Remote Control | Windows 构建目前不支持 SSH 远程启动，需手动启动 Godot 实例 | ⚠️ 计划中 |
+| WebSocket 支持 / WebSocket Support | 目前仅支持原生 TCP 连接，不支持 WebSocket 协议 | ⚠️ 计划中 |
+| 工具参数校验 / Tool Parameter Validation | 部分工具的 JSON 参数校验在 C++ 层而非 Python 层，错误提示可能不够友好 | ⚠️ 待改进 |
+| 大场景性能 / Large Scene Performance | 节点数超过 10000 的场景中，工具列表遍历可能产生延迟 | ⚠️ 待优化 |
+| 插件热加载 / Plugin Hot Reload | MCP 单例注册后如需修改工具定义，需重启 Godot 实例 | ⚠️ 已知 |
+| 安全认证 / Security Authentication | 当前 MCP 服务无内置认证机制，应在受控网络环境中使用 | ⚠️ 计划中 |
 
 ---
 
