@@ -1,0 +1,31 @@
+# AgenticGodot MCP Test Results
+# Generated: 2026-05-21
+# Platform: Linux ARM64 (template_release)
+# Binary: godot.linuxbsd.template_release.arm64
+# Project: /tmp/godot_mcp_test/
+
+## Summary
+Total: 10  Passed: 10  Failed: 0
+
+## Detailed Results
+
+| # | Test Item | Status | Details |
+|---|---|---|---|
+| 1 | SingletonExists | PASS | AgenticMCP singleton found |
+| 2 | StopDefault | PASS | Stopped default server on port 6005 |
+| 3 | StartServer | PASS | start(16005) returned true, is_running=true, port=16005 |
+| 4 | ToolCounts | PASS | total=314 visual=118 control=196 |
+| 5 | ToolsList | PASS | tools_list.size=314 vis_list.size=118 ctrl_list.size=196 |
+| 6 | MCPNetworkConnect | PASS | TCP connected to 127.0.0.1:16005: true |
+| 7 | ToolsListRequest | PASS | Received 49810 bytes, has_result=true |
+| 8 | ToolsListRequestJSON | PASS | server/info response valid=true, tools_count=314 |
+| 9 | VisualToolCall | PASS | call_tool(scene_tree_view) success=true has_preview=true |
+| 10 | ControlToolCall | PASS | call_tool(menu_file_new) success=true has_action=true |
+
+## Notes
+- MCP server auto-starts on default port 6005 (from singleton initialization)
+- Test uses port 16005 after stopping default
+- 314 tools total: 118 visual + 196 control
+- TCP MCP protocol (JSON-RPC 2.0) works correctly
+- Visual tool returns preview data
+- Control tool returns action status
