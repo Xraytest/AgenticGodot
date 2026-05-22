@@ -1,0 +1,8 @@
+[gd_scene load_steps=1 format=3 uid="uid://test_mcp_main"]
+
+[ext_resource type="GDScript" path="res://test_mcp_script.gd" id="1_script"]
+
+[node name="Main" type="Node"]
+
+[node name="TestMCP" type="Node" parent="."]
+script = ExtResource("1_script")

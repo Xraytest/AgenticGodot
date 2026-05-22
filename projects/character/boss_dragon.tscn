@@ -1,0 +1,68 @@
+[gd_scene load_steps=1 format=3 uid="uid://boss_dragon_001"]
+
+[ext_resource type="Material" path="res://projects/character/materials/boss_material.tres" id="mat_boss"]
+[ext_resource type="Material" path="res://projects/character/materials/fire_material.tres" id="mat_fire"]
+
+[node name="DragonBoss" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CapsuleShape" type="CapsuleShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.353553, 0, 0, 0, 1, 0, 2.0, 0)
+radius = 1.5
+height = 6.0
+margin = 0.01
+
+[node name="MeshInstance3D_Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 0)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="MeshInstance3D_Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 4.5, 0)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="MeshInstance3D_Wing_Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3.5, 0)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="MeshInstance3D_Wing_Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3.5, 0)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="MeshInstance3D_Tail" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="MeshInstance3D_Horn_Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 4.8, 0.2)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="MeshInstance3D_Horn_Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 4.8, -0.2)
+surface_material_override/0 = ExtResource("mat_boss")
+
+[node name="FireBreath_Left" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 4.4, 0.3)
+process_material = ExtResource("mat_fire")
+
+[node name="FireBreath_Right" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 4.4, 0.3)
+process_material = ExtResource("mat_fire")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Label3D_Name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0, 0)
+text = "Dragon Boss"
+horizontal_alignment = 1
+font_size = 24
+
+[node name="Area3D_Attack" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 1.0)
+
+[node name="CollisionShape3D_Attack" type="CollisionShape3D" parent="Area3D_Attack"]
+
+[node name="Light3D_Glow" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+energy = 2.0
+omni_light3d_max_distance = 10.0
