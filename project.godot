@@ -10,16 +10,27 @@ config_version=5
 
 [application]
 
-config/name="AgenticGodot"
-config/description="Godot with MCP Control Integration"
-run/main_scene="res://test_agentic_mcp.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/name="SnapRun - Agentic Game"
+config/description="SnapRun endless runner with MCP control, snapshot, and simulation testing"
+run/main_scene="res://src/snap_run/snap_run.tscn"
+config/features=PackedStringArray("4.3")
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=0
+window/size/always_on_top=false
+window/dpi/allow_hidpi=true
+window/energy_saving/keep_screen_on=true
 
 [rendering]
 
-renderer/rendering_method="forward_plus"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[input]
+
+[physics]
+
+[audio]

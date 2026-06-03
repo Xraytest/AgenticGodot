@@ -1266,5 +1266,40 @@
     "name": "display_monitor_frame_rate",
     "desc": "Display frame_rate",
     "type": "visual"
+  },
+  {
+    "id": "render_visual_snapshot",
+    "name": "capture_viewport_snapshot",
+    "desc": "Capture current viewport as base64 PNG image for a specific game state",
+    "type": "visual",
+    "input_schema": {
+      "state": {
+        "type": "string",
+        "description": "Game state identifier (e.g. 'playing', 'game_over', 'menu', 'score_screen')"
+      },
+      "format": {
+        "type": "string",
+        "enum": ["png", "jpg"],
+        "description": "Image format (default: png)"
+      }
+    },
+    "output_schema": {
+      "image": {
+        "type": "string",
+        "description": "Base64-encoded image data"
+      },
+      "format": {
+        "type": "string"
+      },
+      "width": {
+        "type": "number"
+      },
+      "height": {
+        "type": "number"
+      },
+      "state": {
+        "type": "string"
+      }
+    }
   }
 ]

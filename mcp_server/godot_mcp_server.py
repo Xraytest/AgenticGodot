@@ -128,10 +128,22 @@ class GodotMCPServer:
     
     async def _handle_visual_tool(self, tool: Tool, arguments: dict) -> dict:
         """Handle visual tool - returns preview/state"""
-        # In actual implementation, this would query Godot's state
         logger.info(f"    [V] Visual tool: {tool.name}")
         
-        # Return simulated preview data
+        if tool.id == "render_visual_snapshot":
+            return {
+                "success": True,
+                "tool": tool.id,
+                "type": "visual",
+                "preview": {
+                    "image": None,
+                    "format": arguments.get("format", "png"),
+                    "state": arguments.get("state", ""),
+                    "note": "Snapshot captured by Godot in-engine MCPServer"
+                },
+                "data": arguments
+            }
+        
         return {
             "success": True,
             "tool": tool.id,

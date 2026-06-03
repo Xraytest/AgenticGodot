@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://snap_run_main"]
+
+[ext_resource type="Script" path="res://src/snap_run/snap_run.gd" id="1_script"]
+
+[node name="SnapRun" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 540.0
+offset_top = 10.0
+offset_right = 740.0
+offset_bottom = 50.0
+horizontal_alignment = 1
+text = "Score: 0"
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1.0, 1.0, 1.0, 1.0)
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 280.0
+offset_right = 840.0
+offset_bottom = 360.0
+horizontal_alignment = 1
+text = "Game Over!"
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1.0, 0.2, 0.2, 1.0)
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 540.0
+offset_top = 380.0
+offset_right = 740.0
+offset_bottom = 430.0
+text = "Restart"
+theme_override_font_sizes/font_size = 22
+
+[node name="StartLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 340.0
+offset_right = 840.0
+offset_bottom = 380.0
+horizontal_alignment = 1
+text = "Tap or Click to Start"
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.8, 0.8, 1.0, 1.0)
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart"]

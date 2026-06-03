@@ -97,15 +97,9 @@ func _handle_client_message(client: StreamPeer, data: String) -> void:
 	for line in lines:
 		if line.is_empty():
 			continue
-		
-		try:
-			var request = JSON.parse_string(line)
-			if request == null:
-				continue
-			
-			var response = _process_request(request)
-			_send_response(client, response)
-		except:
+
+		var request = JSON.parse_string(line)
+		if request == null:
 			_log("解析JSON失败: %s" % line, "WARN")
 			var error_response = {
 				"jsonrpc": "2.0",
@@ -113,6 +107,10 @@ func _handle_client_message(client: StreamPeer, data: String) -> void:
 				"id": null
 			}
 			_send_response(client, error_response)
+			continue
+
+		var response = _process_request(request)
+		_send_response(client, response)
 
 # 处理JSON-RPC请求
 func _process_request(request: Dictionary) -> Dictionary:
@@ -191,7 +189,12 @@ func _execute_visual_tool(tool_id: String, tool: Dictionary, arguments: Dictiona
 	# 根据工具类型返回适当的预览数据
 	var preview_data = {}
 	
-	if "viewport" in tool_name:
+	if "snapshot" in tool_name:
+		preview_data = _get_snapshot_preview(
+			arguments.get("state", ""),
+			arguments.get("format", "png")
+		)
+	elif "viewport" in tool_name:
 		preview_data = _get_viewport_preview()
 	elif "scene" in tool_name:
 		preview_data = _get_scene_tree_preview()
@@ -280,11 +283,33 @@ func _handle_node_tool(tool_name: String, arguments: Dictionary) -> Dictionary:
 	}
 
 func _handle_input_tool(tool_name: String, arguments: Dictionary) -> Dictionary:
+	var event_type = arguments.get("event", "")
+	var pos_x = arguments.get("x", 640)
+	var pos_y = arguments.get("y", 360)
+	
+	if "touch" in tool_name or "mouse" in tool_name:
+		var ev = InputEventMouseButton.new()
+		ev.position = Vector2(pos_x, pos_y)
+		if "press" in tool_name or "click" in tool_name:
+			ev.button_index = MOUSE_BUTTON_LEFT
+			ev.pressed = true
+		elif "release" in tool_name:
+			ev.button_index = MOUSE_BUTTON_LEFT
+			ev.pressed = false
+		Input.parse_input_event(ev)
+	
+	if "key" in tool_name:
+		var ev = InputEventKey.new()
+		ev.keycode = arguments.get("keycode", KEY_SPACE)
+		ev.pressed = "press" in tool_name
+		Input.parse_input_event(ev)
+	
 	return {
 		"success": true,
 		"action": tool_name,
 		"input_event": arguments.get("event", ""),
-		"status": "输入已模拟"
+		"status": "输入已模拟",
+		"position": {"x": pos_x, "y": pos_y}
 	}
 
 func _handle_build_tool(tool_name: String, arguments: Dictionary) -> Dictionary:
@@ -314,6 +339,43 @@ func _get_viewport_preview() -> Dictionary:
 			"status": "活跃"
 		}
 	return {"type": "viewport", "status": "不可用"}
+
+# 快照捕获 - 将视口渲染为base64图像
+func _get_snapshot_preview(state: String = "", format: String = "png") -> Dictionary:
+	var viewport = get_tree().root
+	if not viewport:
+		return {"success": false, "error": "No viewport available"}
+
+	var image = viewport.get_texture().get_image()
+	if not image:
+		return {"success": false, "error": "Failed to capture viewport image"}
+
+	image.flip_y()
+
+	var buffer: PackedByteArray
+	if format == "jpg":
+		buffer = image.save_jpg_to_buffer()
+	else:
+		buffer = image.save_png_to_buffer()
+
+	if buffer.is_empty():
+		return {"success": false, "error": "Failed to encode image"}
+
+	var base64_str = Marshalls.raw_to_base64(buffer)
+
+	return {
+		"success": true,
+		"tool_id": "render_visual_snapshot",
+		"type": "visual",
+		"preview": {
+			"image": base64_str,
+			"format": format,
+			"width": image.get_width(),
+			"height": image.get_height(),
+			"state": state,
+			"size": buffer.size()
+		}
+	}
 
 func _get_scene_tree_preview() -> Dictionary:
 	var root = get_tree().edited_scene_root
